@@ -1,0 +1,19 @@
+.navigation {
+  display: none;
+  align-items: center;
+  gap: 19px;
+  font-size: 12px;
+}
+.navigation a:hover {
+  color: var(--color-gold);
+}
+@media (min-width: 701px) {
+  .navigation {
+    display: flex;
+  }
+}
+@media (min-width: 1001px) {
+  .navigation {
+    gap: var(--space-6);
+  }
+}

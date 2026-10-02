@@ -1,0 +1,46 @@
+.ribbon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 38px;
+  border-block: 1px solid var(--color-border);
+  padding: 24px 20px;
+  background: #f3ede1;
+}
+.ribbon span {
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+.ribbon b {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-gold);
+}
+@media (max-width: 1000px) {
+  .ribbon {
+    gap: 20px;
+  }
+  .ribbon span {
+    font-size: 13px;
+  }
+}
+@media (max-width: 700px) {
+  .ribbon {
+    flex-wrap: wrap;
+    gap: var(--space-3) 20px;
+    padding: 20px;
+  }
+  .ribbon span {
+    font-size: 12px;
+  }
+  .ribbon b {
+    font-size: 14px;
+  }
+  .ribbon b:last-of-type {
+    display: none;
+  }
+}
+.ribbon [data-ornament] {
+  width: 20px;
+  height: 20px;
+}

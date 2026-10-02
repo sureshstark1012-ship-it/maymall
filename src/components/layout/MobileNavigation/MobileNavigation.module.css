@@ -1,0 +1,43 @@
+.mobile {
+  display: block;
+}
+.menu-toggle {
+  display: block;
+  border: 0;
+  background: transparent;
+  color: var(--color-wine);
+  font-size: 12px;
+  padding: 10px;
+}
+.menu-toggle span {
+  margin-left: 10px;
+}
+.mobile-navigation {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--color-cream);
+  padding: 20px var(--gutter);
+  z-index: 5;
+  border-bottom: 1px solid var(--color-border);
+  align-items: stretch;
+  gap: 19px;
+  font-size: 12px;
+}
+.mobile-navigation.open {
+  display: flex;
+  flex-direction: column;
+}
+.mobile-navigation > a {
+  padding: 12px;
+}
+.mobile-navigation a:hover {
+  color: var(--color-gold);
+}
+@media (min-width: 701px) {
+  .mobile {
+    display: none;
+  }
+}

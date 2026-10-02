@@ -1,0 +1,37 @@
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+.filters button {
+  border: 1px solid #d8cdbb;
+  background: transparent;
+  padding: 11px 18px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  color: #655c54;
+}
+.filters .active {
+  background: var(--color-wine);
+  border-color: var(--color-wine);
+  color: #fff;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+@media (max-width: 700px) {
+  .cards {
+    grid-template-columns: 1fr;
+    gap: 26px;
+  }
+  .filters {
+    gap: 7px;
+  }
+  .filters button {
+    font-size: 10px;
+    padding: 10px 13px;
+  }
+}

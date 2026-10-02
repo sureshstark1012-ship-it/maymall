@@ -1,0 +1,90 @@
+.wedding-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background: var(--color-wine);
+  color: #f9efd8;
+}
+.wedding-pattern {
+  min-height: 540px;
+  background:
+    repeating-linear-gradient(0deg, transparent 0 38px, #b68b4c22 39px 40px),
+    repeating-linear-gradient(90deg, transparent 0 38px, #b68b4c22 39px 40px),
+    #3f1527;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 35px;
+  position: relative;
+}
+.wedding-pattern:before {
+  content: "";
+  position: absolute;
+  inset: 36px;
+  border: 1px solid #ac85494d;
+}
+.wedding-pattern div {
+  font-size: 180px;
+  color: #c09b5f;
+  border: 1px solid #ac8549;
+  border-radius: 50%;
+  height: 250px;
+  width: 250px;
+  display: grid;
+  place-items: center;
+}
+.wedding-pattern > span {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #c8a76e;
+}
+.wedding-copy {
+  padding: 70px 12%;
+}
+.wedding-copy h2 {
+  font-size: clamp(34px, 3.2vw, 49px);
+}
+.wedding-copy em {
+  color: #d2b47b;
+}
+.wedding-copy p:not(:global(.eyebrow)) {
+  font-size: 13px;
+  color: #d2bbc0;
+}
+@media (max-width: 1000px) {
+  .wedding-copy {
+    padding: 60px 9%;
+  }
+  .wedding-pattern {
+    min-height: 500px;
+  }
+}
+@media (max-width: 700px) {
+  .wedding-section {
+    grid-template-columns: 1fr;
+  }
+  .wedding-pattern {
+    min-height: 330px;
+  }
+  .wedding-pattern div {
+    height: 180px;
+    width: 180px;
+    font-size: 130px;
+  }
+  .wedding-pattern > span {
+    font-size: 8px;
+  }
+  .wedding-copy {
+    padding: 45px var(--gutter);
+  }
+}
+.wedding-pattern [data-ornament] {
+  width: 170px;
+  height: 170px;
+}
+@media (max-width: 700px) {
+  .wedding-pattern [data-ornament] {
+    width: 120px;
+    height: 120px;
+  }
+}

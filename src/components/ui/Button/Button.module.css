@@ -1,0 +1,23 @@
+.button {
+  display: inline-flex;
+  gap: var(--space-6);
+  align-items: center;
+  background: var(--color-wine);
+  color: var(--color-on-wine);
+  padding: 17px 23px;
+  font-size: 12px;
+}
+.button:hover {
+  background: var(--color-wine-light);
+}
+.button span {
+  font-size: 18px;
+}
+.light {
+  background: #efe3cb;
+  color: var(--color-wine);
+  margin-top: 10px;
+}
+.light:hover {
+  background: #fff3dc;
+}

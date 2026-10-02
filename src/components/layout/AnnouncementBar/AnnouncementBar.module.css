@@ -1,0 +1,20 @@
+.announcement {
+  text-align: center;
+  background: var(--color-wine);
+  color: #f5e9d6;
+  font-size: 10px;
+  letter-spacing: 2px;
+  padding: 12px 16px;
+}
+.announcement span {
+  margin: 0 14px;
+}
+@media (max-width: 700px) {
+  .announcement {
+    font-size: 8px;
+    letter-spacing: 1px;
+  }
+  .announcement span {
+    margin: 0 7px;
+  }
+}

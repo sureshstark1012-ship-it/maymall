@@ -1,0 +1,35 @@
+.visit {
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9%;
+}
+.visit > div > p:not(:global(.eyebrow)) {
+  font-size: 13px;
+  color: var(--color-text-muted);
+}
+.opening {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  border: 1px solid var(--color-border-strong);
+  padding: 14px;
+  margin-top: 15px;
+}
+.opening > span {
+  height: 6px;
+  width: 6px;
+  border-radius: 50%;
+  background: var(--color-wine);
+}
+@media (max-width: 700px) {
+  .visit {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .opening {
+    font-size: 8px;
+  }
+}

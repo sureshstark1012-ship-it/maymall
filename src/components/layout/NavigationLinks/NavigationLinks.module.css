@@ -1,0 +1,7 @@
+.nav-cta {
+  padding: 13px 19px;
+  border: 1px solid var(--color-border-strong);
+}
+.nav-cta span {
+  margin-left: 20px;
+}
