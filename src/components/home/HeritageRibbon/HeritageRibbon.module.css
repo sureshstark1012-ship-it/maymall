@@ -1,46 +1,43 @@
 .ribbon {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(4, auto);
   justify-content: center;
-  align-items: center;
-  gap: 38px;
-  border-block: 1px solid var(--color-border);
-  padding: 24px 20px;
-  background: #f3ede1;
+  gap: 0;
+  border-block: var(--textile-rule);
+  padding: 28px var(--gutter);
+  background: var(--color-surface);
 }
 .ribbon span {
   font-family: var(--font-display);
-  font-size: 16px;
+  font-size: 21px;
+  padding-inline: 28px;
+  text-align: center;
+  line-height: 1.3;
 }
-.ribbon b {
-  font-size: 20px;
-  font-weight: 400;
-  color: var(--color-gold);
+.ribbon span + span {
+  border-left: 1px solid var(--color-border-strong);
 }
-@media (max-width: 1000px) {
+@media (max-width: 1100px) {
+  .ribbon span {
+    font-size: 18px;
+    padding-inline: 16px;
+  }
+}
+@media (max-width: 900px) {
   .ribbon {
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px 0;
+  }
+  .ribbon span:nth-child(3) {
+    border-left: 0;
+  }
+}
+@media (max-width: 600px) {
+  .ribbon {
+    padding-block: 24px;
   }
   .ribbon span {
-    font-size: 13px;
+    font-size: 17px;
+    padding-inline: 10px;
   }
-}
-@media (max-width: 700px) {
-  .ribbon {
-    flex-wrap: wrap;
-    gap: var(--space-3) 20px;
-    padding: 20px;
-  }
-  .ribbon span {
-    font-size: 12px;
-  }
-  .ribbon b {
-    font-size: 14px;
-  }
-  .ribbon b:last-of-type {
-    display: none;
-  }
-}
-.ribbon [data-ornament] {
-  width: 20px;
-  height: 20px;
 }

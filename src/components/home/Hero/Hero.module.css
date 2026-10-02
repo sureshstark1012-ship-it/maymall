@@ -1,140 +1,146 @@
 .hero {
   display: grid;
   grid-template-columns: 1.05fr 1fr;
-  padding-block: 48px 60px;
-  gap: 6%;
+  gap: 5%;
+  padding-block: 40px 80px;
+  align-items: center;
 }
 .hero-copy {
-  padding-top: 33px;
+  position: relative;
+  padding-block: 20px;
 }
 .hero :global(.eyebrow) {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
+  font-size: 12px;
 }
 .hero :global(.eyebrow) span {
-  width: 22px;
+  flex: 0 0 24px;
   height: 1px;
-  background: var(--color-gold);
+  background: var(--color-accent);
+}
+.hero h1 {
+  margin-bottom: 0;
+  font-size: var(--type-hero);
+}
+.hero h1 em {
+  display: inline-block;
+  max-width: 7.5em;
 }
 .lead {
-  font-size: 14px;
-  color: var(--color-text-muted);
-  max-width: 355px;
-  margin-bottom: 28px;
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  max-width: 27em;
+  margin-block: 28px;
+  line-height: 1.75;
 }
 .hero-note {
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-top: 42px;
-}
-.mini-flower {
-  font-size: 32px;
-  color: var(--color-gold);
+  border-left: var(--textile-rule);
+  padding-left: 18px;
+  margin-top: 36px;
 }
 .hero-note p {
-  font-size: 11px;
-  line-height: 1.6;
+  font-size: 13px;
   margin: 0;
-  color: var(--color-text-muted);
+  color: var(--color-text-secondary);
+  line-height: 1.7;
 }
 .hero-note strong {
-  font-weight: 400;
-  color: var(--color-text);
+  font-weight: 500;
+  color: var(--color-text-primary);
 }
 .hero-art {
   position: relative;
-  min-height: 530px;
-  max-height: 680px;
+  margin: 0;
+  height: clamp(560px, 49vw, 710px);
+  padding: 12px;
+  border: var(--textile-rule);
+  background: var(--color-surface);
 }
 .hero-art > img {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  object-position: 55% center;
 }
 .art-label {
   position: absolute;
-  bottom: 22px;
-  left: 25px;
-  right: 25px;
-  color: #f6dfb0;
-  font-size: 9px;
-  letter-spacing: 2px;
+  bottom: 12px;
+  left: 12px;
+  right: 12px;
+  padding: 18px;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  font-size: 12px;
   display: flex;
   justify-content: space-between;
+  gap: 12px;
 }
-.art-label span {
-  font-size: 8px;
-  letter-spacing: 1px;
+.art-label > span:first-child {
+  letter-spacing: 0.08em;
 }
-.seal {
-  position: absolute;
-  top: 32px;
-  right: -23px;
-  width: 112px;
-  height: 112px;
-  border-radius: 50%;
-  background: #efe4cc;
-  outline: 1px solid #bda476;
-  outline-offset: -7px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-size: 10px;
-  line-height: 1.6;
-  transform: rotate(10deg);
-  color: var(--color-wine);
-}
-.seal em {
-  font-family: var(--font-display);
-  font-size: 23px;
-}
-@media (max-width: 1000px) {
-  .hero {
-    gap: 4%;
-    padding-top: 35px;
-  }
-  .hero-art {
-    min-height: 510px;
-  }
-  .hero :global(.eyebrow) {
-    font-size: 8px;
-    letter-spacing: 1px;
+@media (max-width: 1100px) {
+  .hero h1 {
+    font-size: clamp(3.5rem, 5.9vw, 5rem);
   }
   .art-label {
     flex-direction: column;
-    gap: 8px;
+    gap: 4px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .hero {
-    grid-template-columns: 1fr;
-    gap: 35px;
-    padding-bottom: 35px;
+    gap: 5%;
+    padding-block: 24px 64px;
   }
-  .hero-copy {
-    padding-top: 0;
-  }
-  .hero-note {
-    margin-top: 25px;
+  .hero h1 {
+    font-size: clamp(3.1rem, 6.8vw, 4rem);
   }
   .hero-art {
-    min-height: 0;
-    height: 420px;
-    margin-right: 12px;
+    height: 590px;
   }
-  .seal {
-    top: 25px;
-    right: -12px;
-    width: 98px;
-    height: 98px;
+  .hero :global(.eyebrow) {
+    letter-spacing: 0.08em;
+  }
+  .hero-note {
+    margin-top: 28px;
+  }
+}
+@media (max-width: 600px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-block: 12px 48px;
+  }
+  .hero-copy {
+    padding-bottom: 0;
+  }
+  .hero h1 {
+    font-size: clamp(3.1rem, 12.4vw, 3.8rem);
+  }
+  .hero :global(.eyebrow) {
+    max-width: 25em;
+    margin-bottom: 24px;
+  }
+  .hero :global(.eyebrow) span {
+    display: none;
+  }
+  .lead {
+    margin-block: 24px;
+  }
+  .hero-note {
+    margin-top: 28px;
+  }
+  .hero-art {
+    height: 390px;
+    margin-left: 28px;
+    padding: 8px;
   }
   .art-label {
-    flex-direction: row;
-    font-size: 8px;
-    left: 17px;
-    right: 17px;
+    left: 8px;
+    right: 8px;
+    bottom: 8px;
+    padding: 14px;
   }
 }

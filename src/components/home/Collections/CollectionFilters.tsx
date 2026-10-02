@@ -44,7 +44,11 @@ export function CollectionFilters({
         {visible.length} {visible.length === 1 ? "collection" : "collections"}{" "}
         shown
       </p>
-      <div id="collection-results" className={styles.cards}>
+      <div
+        id="collection-results"
+        className={styles.cards}
+        data-filtered={filter !== "all"}
+      >
         {visible.map((item) => (
           <Fragment key={item.id}>{item.content}</Fragment>
         ))}

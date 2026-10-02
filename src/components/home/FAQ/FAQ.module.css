@@ -1,28 +1,43 @@
+.faq {
+  border-top: 1px solid var(--color-border-strong);
+}
 .faq details {
-  border-bottom: 1px solid var(--color-border);
-  padding: 21px 0;
+  border-bottom: 1px solid var(--color-border-strong);
 }
 .faq summary {
   cursor: pointer;
   list-style: none;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  gap: 15px;
-  font-size: 13px;
+  gap: 24px;
+  font-size: 16px;
+  min-height: 72px;
+  padding-block: 20px;
+  transition: color var(--transition-fast);
+  line-height: 1.5;
 }
 .faq summary::-webkit-details-marker {
   display: none;
 }
+.faq summary:hover {
+  color: var(--color-brand);
+}
+.faq summary:active {
+  color: var(--color-accent);
+}
 .faq summary > span {
-  color: var(--color-gold);
-  font-size: 20px;
+  color: var(--color-accent);
+  font-size: 26px;
   line-height: 1;
+  transition: transform var(--transition-fast);
 }
 .faq details[open] summary > span {
   transform: rotate(45deg);
 }
 .faq p {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  margin: 15px 25px 0 0;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin: 0 40px 24px 0;
+  line-height: 1.85;
 }

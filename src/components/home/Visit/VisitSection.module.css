@@ -1,35 +1,42 @@
 .visit {
-  border-top: 1px solid var(--color-border);
+  border-top: var(--textile-rule);
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 9%;
 }
+.visit h2 {
+  max-width: 8em;
+}
 .visit > div > p:not(:global(.eyebrow)) {
-  font-size: 13px;
-  color: var(--color-text-muted);
+  font-size: 16px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+  margin-top: 28px;
 }
 .opening {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 9px;
-  letter-spacing: 1.5px;
-  border: 1px solid var(--color-border-strong);
-  padding: 14px;
-  margin-top: 15px;
+  gap: 12px;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  border-block: 1px solid var(--color-border-strong);
+  padding-block: 18px;
+  margin-top: 16px;
+  line-height: 1.6;
 }
 .opening > span {
   height: 6px;
   width: 6px;
+  flex-shrink: 0;
   border-radius: 50%;
-  background: var(--color-wine);
+  background: var(--color-brand);
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
   .visit {
     grid-template-columns: 1fr;
-    gap: 20px;
+    gap: 48px;
   }
-  .opening {
-    font-size: 8px;
+  .visit h2 {
+    max-width: 12em;
   }
 }

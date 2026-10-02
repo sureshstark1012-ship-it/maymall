@@ -113,7 +113,7 @@ test("skip link, headings, artwork, language and year are accessible", async ({
   await expect(page.getByRole("heading", { level: 1 })).toHaveCount(1);
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
   await expect(page.locator('[lang="ta"]')).toHaveText("வணக்கம் மதுரை");
-  await expect(page.getByRole("main").getByRole("img")).toHaveCount(2);
+  await expect(page.getByRole("main").getByRole("img")).toHaveCount(4);
   await expect(page.locator("footer")).toContainText(
     `© ${new Date().getFullYear()} MayMall`,
   );
@@ -127,7 +127,7 @@ test("skip link, headings, artwork, language and year are accessible", async ({
 for (const width of [375, 768, 1024, 1440]) {
   test(`responsive layout at ${width}px has no overflow or browser errors`, async ({
     page,
-  }) => {
+  }, testInfo) => {
     const errors: string[] = [];
     page.on("pageerror", (error) => errors.push(error.message));
     page.on("console", (message) => {
@@ -141,13 +141,43 @@ for (const width of [375, 768, 1024, 1440]) {
         () => document.documentElement.scrollWidth <= window.innerWidth,
       ),
     ).toBe(true);
-    const mobile = width <= 700;
+    const smallTargets = await page
+      .locator("a, button, summary")
+      .evaluateAll((elements) =>
+        elements
+          .filter((element) => {
+            const box = element.getBoundingClientRect();
+            return box.width > 0 && box.height > 0 && box.height < 44;
+          })
+          .map((element) => element.textContent?.trim()),
+      );
+    expect(smallTargets).toEqual([]);
+    const mobile = width <= 900;
     if (mobile)
       await expect(page.getByRole("button", { name: "Menu" })).toBeVisible();
     else
       await expect(
         page.getByRole("navigation", { name: "Main navigation", exact: true }),
       ).toBeVisible();
+    // Scroll each lazy artwork into view before assessing image health or capturing.
+    await page.emulateMedia({ reducedMotion: "reduce" });
+    for (const artwork of await page.getByRole("main").getByRole("img").all()) {
+      await artwork.scrollIntoViewIfNeeded();
+      await expect(artwork).toHaveJSProperty("complete", true);
+      expect(
+        await artwork.evaluate((image: HTMLImageElement) => image.naturalWidth),
+      ).toBeGreaterThan(0);
+    }
+    await page.evaluate(() => document.fonts.ready);
+    if (width === 375 || width === 1440) {
+      await page.evaluate(() => window.scrollTo(0, 0));
+      const path = testInfo.outputPath(`homepage-${width}.png`);
+      await page.screenshot({ path, fullPage: true });
+      await testInfo.attach(`Homepage ${width}px`, {
+        path,
+        contentType: "image/png",
+      });
+    }
     expect(errors).toEqual([]);
   });
 }
@@ -160,6 +190,14 @@ test("reduced motion disables smooth scrolling", async ({ page }) => {
       .locator("html")
       .evaluate((element) => getComputedStyle(element).scrollBehavior),
   ).toBe("auto");
+  await page.getByRole("article").first().hover();
+  expect(
+    await page
+      .getByRole("article")
+      .first()
+      .getByRole("img")
+      .evaluate((element) => getComputedStyle(element).transitionDuration),
+  ).toBe("0s");
 });
 
 test("mobile anchors, collections and FAQ remain usable without JavaScript", async ({

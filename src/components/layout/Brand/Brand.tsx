@@ -1,8 +1,13 @@
 import { OrnamentIcon } from "@/components/ui/Ornament/OrnamentIcon";
+import { cx } from "@/lib/utils";
 import styles from "./Brand.module.css";
-export function Brand() {
+export function Brand({ light = false }: { light?: boolean }) {
   return (
-    <a className={styles.brand} href="#" aria-label="MayMall home">
+    <a
+      className={cx(styles.brand, light && styles.light)}
+      href="#"
+      aria-label="MayMall home"
+    >
       <span className={styles["brand-icon"]}>
         <OrnamentIcon />
       </span>

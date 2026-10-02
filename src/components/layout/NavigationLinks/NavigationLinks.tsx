@@ -2,18 +2,19 @@ import { navigation } from "@/data/navigation";
 import { ArrowIcon } from "@/components/ui/ArrowIcon/ArrowIcon";
 import styles from "./NavigationLinks.module.css";
 export function NavigationLinks() {
-  return navigation.map((item) => (
+  return navigation.map((item, index) => (
     <a
       key={item.href}
       href={item.href}
       className={item.featured ? styles["nav-cta"] : undefined}
     >
-      {item.label}
-      {item.featured && (
-        <span>
-          <ArrowIcon />
-        </span>
-      )}
+      <span className={styles.number} aria-hidden="true">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+      <span className={styles.label}>{item.label}</span>
+      <span className={styles.arrow}>
+        <ArrowIcon />
+      </span>
     </a>
   ));
 }

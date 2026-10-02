@@ -1,20 +1,30 @@
 .announcement {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+  padding: 11px var(--gutter);
+  background: var(--color-brand);
+  color: var(--color-on-brand);
   text-align: center;
-  background: var(--color-wine);
-  color: #f5e9d6;
-  font-size: 10px;
-  letter-spacing: 2px;
-  padding: 12px 16px;
+  font-size: var(--type-label);
+  line-height: 1.6;
+  letter-spacing: 0.11em;
 }
-.announcement span {
-  margin: 0 14px;
+.status {
+  white-space: nowrap;
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .announcement {
-    font-size: 8px;
-    letter-spacing: 1px;
+    font-size: 12px;
+    letter-spacing: 0.04em;
+    padding-block: 9px;
+    gap: 2px;
   }
-  .announcement span {
-    margin: 0 7px;
+  .separator {
+    display: none;
+  }
+  .status {
+    flex-basis: 100%;
   }
 }

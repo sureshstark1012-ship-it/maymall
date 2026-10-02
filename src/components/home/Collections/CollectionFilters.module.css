@@ -1,37 +1,76 @@
 .filters {
   display: flex;
   gap: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 40px;
   flex-wrap: wrap;
 }
 .filters button {
-  border: 1px solid #d8cdbb;
+  min-height: 48px;
+  border: 1px solid var(--color-border-strong);
   background: transparent;
-  padding: 11px 18px;
-  border-radius: var(--radius-pill);
-  font-size: 11px;
-  color: #655c54;
+  padding: 12px 18px;
+  font-size: 13px;
+  color: var(--color-text-primary);
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast);
 }
-.filters .active {
-  background: var(--color-wine);
-  border-color: var(--color-wine);
-  color: #fff;
+.filters button:hover {
+  background: var(--color-background);
+}
+.filters button:active {
+  background: var(--color-border);
+}
+.filters .active,
+.filters .active:hover {
+  background: var(--color-brand);
+  border-color: var(--color-brand);
+  color: var(--color-on-brand);
 }
 .cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 32px;
+  align-items: start;
 }
-@media (max-width: 700px) {
+.cards[data-filtered="true"] {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 900px;
+}
+.cards[data-filtered="true"] > article {
+  padding-top: 0;
+}
+@media (max-width: 900px) {
   .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px 24px;
+  }
+  .cards > article:last-child:nth-child(3) {
+    grid-column: 1 / -1;
+    width: 72%;
+    justify-self: end;
+  }
+}
+@media (max-width: 600px) {
+  .cards,
+  .cards[data-filtered="true"] {
     grid-template-columns: 1fr;
-    gap: 26px;
+    gap: 44px;
+  }
+  .cards > article:last-child:nth-child(3) {
+    grid-column: auto;
+    width: auto;
+    justify-self: stretch;
+  }
+  .cards[data-filtered="true"] > article {
+    margin-inline: 0;
   }
   .filters {
-    gap: 7px;
+    gap: 8px;
+    margin-bottom: 32px;
   }
   .filters button {
-    font-size: 10px;
-    padding: 10px 13px;
+    font-size: 12px;
+    padding-inline: 12px;
   }
 }

@@ -1,4 +1,3 @@
-import { OrnamentIcon } from "@/components/ui/Ornament/OrnamentIcon";
 import { CtaLink } from "@/components/ui/CtaLink/CtaLink";
 import { Container } from "@/components/ui/Container/Container";
 import styles from "./Hero.module.css";
@@ -21,9 +20,6 @@ export function Hero() {
         </p>
         <CtaLink href="#collections">Explore the collections</CtaLink>
         <div className={styles["hero-note"]}>
-          <span className={styles["mini-flower"]}>
-            <OrnamentIcon />
-          </span>
           <p>
             For the moments you’ll remember.
             <br />
@@ -31,22 +27,19 @@ export function Hero() {
           </p>
         </div>
       </div>
-      <div className={styles["hero-art"]}>
+      <figure className={styles["hero-art"]}>
         <img
           src="/images/silk.svg"
+          width="900"
+          height="1100"
+          fetchPriority="high"
           alt="Illustration of rich plum silk with an ornate golden border"
         />
-        <div className={styles["art-label"]}>
-          THE BEAUTY OF TRADITION <span>01 / THE SILK EDIT</span>
-        </div>
-        <div className={styles["seal"]}>
-          A new
-          <br />
-          <em>chapter</em>
-          <br />
-          in Madurai
-        </div>
-      </div>
+        <figcaption className={styles["art-label"]}>
+          <span>01 / THE SILK EDIT</span>
+          <span>Illustrative textile study</span>
+        </figcaption>
+      </figure>
     </Container>
   );
 }

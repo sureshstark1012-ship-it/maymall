@@ -6,7 +6,7 @@ export function Footer() {
   return (
     <Container as="footer" variant="full" className={styles.footer}>
       <div className={styles["footer-top"]}>
-        <Brand />
+        <Brand light />
         <p>Tradition woven into tomorrow.</p>
         <a href="#">Back to top ↑</a>
       </div>

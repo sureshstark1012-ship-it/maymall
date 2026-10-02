@@ -13,7 +13,7 @@ export function MobileNavigation({ children }: { children: ReactNode }) {
         trigger.current?.focus();
       }
     };
-    const desktop = window.matchMedia("(min-width: 701px)");
+    const desktop = window.matchMedia("(min-width: 901px)");
     const closeOnDesktop = () => {
       if (desktop.matches) setOpen(false);
     };
@@ -34,7 +34,7 @@ export function MobileNavigation({ children }: { children: ReactNode }) {
         aria-controls="mobile-navigation"
         onClick={() => setOpen(!open)}
       >
-        Menu <span aria-hidden="true">☰</span>
+        Menu <span aria-hidden="true" />
       </button>
       <nav
         id="mobile-navigation"

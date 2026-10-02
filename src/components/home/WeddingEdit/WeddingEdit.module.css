@@ -1,90 +1,121 @@
 .wedding-section {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  background: var(--color-wine);
-  color: #f9efd8;
+  grid-template-columns: 0.8fr 1.2fr;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
 }
 .wedding-pattern {
-  min-height: 540px;
+  min-height: 630px;
   background:
-    repeating-linear-gradient(0deg, transparent 0 38px, #b68b4c22 39px 40px),
-    repeating-linear-gradient(90deg, transparent 0 38px, #b68b4c22 39px 40px),
-    #3f1527;
+    repeating-linear-gradient(0deg, transparent 0 9px, #d9bb8209 9px 10px),
+    repeating-linear-gradient(90deg, transparent 0 9px, #d9bb8209 9px 10px),
+    var(--color-surface-deep);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 35px;
+  gap: 40px;
   position: relative;
 }
-.wedding-pattern:before {
+.wedding-pattern::before,
+.wedding-pattern::after {
   content: "";
   position: absolute;
-  inset: 36px;
-  border: 1px solid #ac85494d;
+  inset: 32px;
+  border: 1px solid #d9bb824d;
+  pointer-events: none;
+}
+.wedding-pattern::after {
+  inset: 40px;
 }
 .wedding-pattern div {
-  font-size: 180px;
-  color: #c09b5f;
-  border: 1px solid #ac8549;
-  border-radius: 50%;
-  height: 250px;
-  width: 250px;
+  color: var(--color-accent-light);
+  width: clamp(180px, 20vw, 300px);
+  height: clamp(180px, 20vw, 300px);
+  border: 1px solid #d9bb8280;
   display: grid;
   place-items: center;
+  transform: rotate(45deg);
+}
+.wedding-pattern [data-ornament] {
+  width: 62%;
+  height: 62%;
+  transform: rotate(-45deg);
 }
 .wedding-pattern > span {
-  font-size: 10px;
-  letter-spacing: 4px;
-  color: #c8a76e;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  color: var(--color-accent-light);
 }
 .wedding-copy {
-  padding: 70px 12%;
+  padding: clamp(64px, 7vw, 110px) clamp(32px, 6vw, 100px);
+  max-width: 880px;
+}
+.wedding-copy :global(.eyebrow) {
+  color: var(--color-accent-light);
 }
 .wedding-copy h2 {
-  font-size: clamp(34px, 3.2vw, 49px);
+  font-size: clamp(3rem, 4.3vw, 4.75rem);
+  margin-bottom: 32px;
 }
 .wedding-copy em {
-  color: #d2b47b;
+  color: var(--color-accent-light);
 }
 .wedding-copy p:not(:global(.eyebrow)) {
-  font-size: 13px;
-  color: #d2bbc0;
+  font-size: 16px;
+  color: var(--color-rose);
+  max-width: 29em;
+  line-height: 1.85;
+  margin-bottom: 32px;
 }
-@media (max-width: 1000px) {
-  .wedding-copy {
-    padding: 60px 9%;
+@media (max-width: 900px) {
+  .wedding-section {
+    grid-template-columns: 0.65fr 1fr;
   }
   .wedding-pattern {
-    min-height: 500px;
+    min-height: 0;
+  }
+  .wedding-pattern div {
+    width: 150px;
+    height: 150px;
+  }
+  .wedding-pattern::before {
+    inset: 16px;
+  }
+  .wedding-pattern::after {
+    inset: 22px;
+  }
+  .wedding-pattern > span {
+    letter-spacing: 0.06em;
+  }
+  .wedding-copy {
+    padding: 64px 32px;
+  }
+  .wedding-copy h2 {
+    font-size: 44px;
   }
 }
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .wedding-section {
     grid-template-columns: 1fr;
   }
+  .wedding-copy {
+    grid-row: 1;
+    padding: 64px var(--gutter) 48px;
+  }
+  .wedding-copy h2 {
+    font-size: clamp(2.65rem, 11vw, 3.25rem);
+  }
   .wedding-pattern {
-    min-height: 330px;
+    min-height: 290px;
+    gap: 28px;
+    margin: 0 var(--gutter) 32px;
   }
   .wedding-pattern div {
-    height: 180px;
-    width: 180px;
-    font-size: 130px;
+    width: 130px;
+    height: 130px;
   }
   .wedding-pattern > span {
-    font-size: 8px;
-  }
-  .wedding-copy {
-    padding: 45px var(--gutter);
-  }
-}
-.wedding-pattern [data-ornament] {
-  width: 170px;
-  height: 170px;
-}
-@media (max-width: 700px) {
-  .wedding-pattern [data-ornament] {
-    width: 120px;
-    height: 120px;
+    font-size: 12px;
   }
 }

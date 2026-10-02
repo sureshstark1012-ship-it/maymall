@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="900" viewBox="0 0 700 900">
+<defs>
+ <linearGradient id="sage"><stop stop-color="#607267"/><stop offset=".5" stop-color="#809080"/><stop offset="1" stop-color="#42594d"/></linearGradient>
+ <linearGradient id="ochre"><stop stop-color="#b28b55"/><stop offset=".5" stop-color="#e0c49a"/><stop offset="1" stop-color="#be945d"/></linearGradient>
+ <linearGradient id="rose"><stop stop-color="#88685e"/><stop offset=".5" stop-color="#c5a294"/><stop offset="1" stop-color="#a47b6c"/></linearGradient>
+ <pattern id="weave" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 1H6M1 0V6" stroke="#faf1de" stroke-opacity=".14" stroke-width=".6"/></pattern>
+</defs>
+<path fill="#e4dfcc" d="M0 0h700v900H0z"/>
+<g transform="rotate(-14 350 450)">
+<path d="M-120 210h760v295H-120z" fill="#24382f" opacity=".12" transform="translate(10 16)"/><path d="M-120 210h760v295H-120z" fill="url(#sage)"/>
+<path d="M-120 454h760v23H-120z" fill="#cdb78a"/><path d="M-120 446h760M-120 485h760" stroke="#cdb78a" stroke-width="2"/>
+<path d="M90 470h760v270H90z" fill="#705537" opacity=".14" transform="translate(10 16)"/><path d="M90 470h760v270H90z" fill="url(#ochre)"/>
+<path d="M90 688h760v20H90z" fill="#85612f"/><path d="M90 679h760M90 717h760" stroke="#85612f" stroke-width="2"/>
+<path d="M-120 722h760v280H-120z" fill="url(#rose)"/><path d="M-120 750h760v20H-120z" fill="#ecd9b8"/><path d="M-120 741h760M-120 779h760" stroke="#ecd9b8" stroke-width="2"/>
+</g><path fill="url(#weave)" d="M0 0h700v900H0z"/>
+</svg>

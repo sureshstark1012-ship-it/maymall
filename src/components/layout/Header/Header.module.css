@@ -1,25 +1,37 @@
 .header {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: 26px;
-  border-bottom: 1px solid #e8e0d2;
-}
-@media (max-width: 700px) {
-  .header {
-    padding-block: 20px;
-    position: relative;
-  }
+  padding-block: 24px;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 10;
+  background: var(--color-background);
 }
 .fallback {
   display: none;
 }
-@media (max-width: 700px) {
+@media (max-width: 900px) {
+  .header {
+    padding-block: 20px;
+  }
   .fallback {
     display: flex;
     flex-wrap: wrap;
-    gap: 16px;
-    margin-top: 16px;
+    gap: 12px 24px;
+    padding-top: 20px;
+  }
+  .fallback a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+  }
+  .header:has(.fallback) button {
+    display: none;
+  }
+  .header:has(.fallback) > noscript {
+    width: 100%;
   }
   .header:has(.fallback) {
     flex-wrap: wrap;

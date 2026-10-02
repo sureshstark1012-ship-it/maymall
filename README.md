@@ -1,6 +1,6 @@
 # MayMall Madurai
 
-Phase 1 engineering foundation for the existing MayMall coming-soon website. The wine, antique-gold and cream visual identity, editorial typography, artwork and cautious brand copy are preserved. This phase adds no commerce, authentication, database or new brand claims.
+MayMall’s coming-soon homepage combines the Phase 1 Next.js engineering foundation and production hardening with Phase 2 textile-inspired editorial art direction. Plum, antique gold, ivory and parchment support locally hosted typography, abstract textile studies and responsive compositions. Cautious brand copy is preserved; no commerce, authentication, database or new business claims are added.
 
 ## Stack and prerequisites
 
@@ -37,7 +37,7 @@ npm run build
 npm test
 ```
 
-Install the test browser once with `npx playwright install chromium` (or `npx playwright install --with-deps chromium` on supported Linux hosts). When a system Chromium already exists, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium` before `npm test` to use it. `npm test` delegates to `npm run test:e2e:prod`: build first, then Playwright starts and stops an isolated **production** server on port 3100. It refuses to reuse an existing server so a development server or stale build cannot pass as production. `npm run test:e2e:dev` separately runs the same suite against a managed development server for local iteration. Stop any development server in this checkout before running that command. Use `npm run format` to apply formatting.
+Install the test browser once with `npx playwright install chromium` (or `npx playwright install --with-deps chromium` on supported Linux hosts). When a system Chromium already exists, set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium` before `npm test` to use it. `npm test` delegates to `npm run test:e2e:prod`: build first, then Playwright starts and stops an isolated **production** server on port 3100. It refuses to reuse an existing server so a development server or stale build cannot pass as production. `npm run test:e2e:dev` separately runs the same suite against a managed development server for local iteration. Stop any development server in this checkout before running that command. The responsive tests attach full-page screenshots at 375px and 1440px after loading fonts and lazy artwork. CI retains the two screenshots for seven days as the `homepage-review` artifact. Review these artifacts manually; pixel baselines are deferred until CI’s Chromium/font-rendering environment is pinned and a baseline is approved. Use `npm run format` to apply formatting.
 
 ## Structure
 
@@ -48,18 +48,21 @@ Install the test browser once with `npx playwright install chromium` (or `npx pl
 - `src/data`: typed navigation, collection and FAQ content.
 - `src/types`: shared content contracts.
 - `src/lib`: small class-name helper and server metadata configuration.
-- `public/images`: unchanged silk SVG; icons are reusable inline React SVGs.
+- `public/images`: original silk SVG and two original illustrative textile studies.
+- `src/app/fonts`: licensed, vendored Newsreader, Public Sans and Noto Sans Tamil WOFF2 subsets with source/version/integrity records. `src/app/fonts.ts` loads them through `next/font/local`.
+- `src/app/icon.svg`: browser-tab adaptation of the existing brand ornament.
 - `tests`: keyboard, filtering, FAQ, progressive enhancement, metadata and responsive browser checks.
 - `docs/phase-1-audit.md`: prototype audit and migration decisions.
-- `docs/phase-1-completion.md`: migration inventory, dependency rationale and verification results.
+- `docs/phase-1-completion.md`: historical migration inventory and verification.
+- `docs/phase-2-design.md`: visual audit, art direction, contrast review, responsive decisions, assets and verification.
 
 Static sections and artwork are Server Components. Only MobileNavigation and CollectionFilters own client state. Collection cards and navigation links are supplied as server-rendered children, keeping their markup out of the client implementation. Native FAQ details require no JavaScript. The mobile menu is a non-modal disclosure, not a dialog; Tab follows ordinary document order, Escape restores focus, and link selection focuses its destination. A no-JavaScript navigation fallback remains available on mobile; all collections remain visible without JavaScript.
 
-CSS Modules contain component styles and responsive overrides. `globals.css` owns shared foundations and a restrained token scale. Container provides normal, wide and full-width variants, shared gutters and optional section spacing. Decorative textile colours remain local to their artwork. No remote fonts, UI/icon packages, animation libraries or external scripts are required. SVG artwork is served directly rather than rasterized or sent through image optimization; use `next/image` for future raster content when useful.
+CSS Modules contain component styles and responsive overrides. `globals.css` owns shared foundations and a restrained token scale. Container provides normal, wide and full-width variants, shared gutters and optional section spacing. Decorative textile colours remain local to their artwork. Fonts are self-hosted using `next/font/local`; builds need no font-provider requests. Latin display/body faces are preloaded; the Tamil subset loads on demand. No UI/icon packages, animation libraries or external scripts are required. SVG artwork is served directly rather than rasterized or sent through image optimization; use `next/image` for future raster content when useful.
 
 ## Remaining production inputs
 
-A verified domain, production deployment target, approved social artwork and confirmed business details remain future inputs. Existing cautious Chennai Silks wording is unchanged. Contrast and editorial legibility should receive a dedicated brand accessibility review before any later visual phase; Phase 1 intentionally preserves the current palette and type sizes. No Phase 2 redesign is included.
+A verified domain, production deployment target, approved brand photography/social artwork and confirmed business details remain future inputs. Existing cautious Chennai Silks wording is unchanged. Illustrations are conceptual editorial previews, not photographs or confirmed inventory. New text colour combinations were reviewed for contrast; the documented check is not a full accessibility certification. Phase 2 stops at the visual homepage experience.
 
 ## CI and production hardening
 

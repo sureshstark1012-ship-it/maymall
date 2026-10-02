@@ -1,140 +1,90 @@
+.card {
+  min-width: 0;
+}
 .card-art {
-  height: 310px;
+  aspect-ratio: 3 / 4;
   overflow: hidden;
   position: relative;
+  background: var(--color-surface);
 }
-.card-art > span {
-  position: absolute;
-  top: 17px;
-  left: 17px;
-  font-size: 11px;
-  color: #fff;
-  padding: 7px;
-  border: 1px solid #ffffff66;
-}
-.silk img {
+.card-art img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 70%;
   transition: transform var(--transition-image);
 }
-.card:hover .silk img {
-  transform: scale(1.04);
+.card-art > span {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  font-size: 12px;
+  color: var(--color-on-brand);
+  padding: 8px 12px;
+  background: var(--color-brand);
+  letter-spacing: 0.08em;
+}
+.silk .card-art {
+  aspect-ratio: 4 / 5;
+}
+.silk img {
+  object-position: center 65%;
 }
 .wedding {
-  background: radial-gradient(
-    ellipse at 50% 100%,
-    #c49b62,
-    #bb7458 60%,
-    #9a503c
-  );
-  display: flex;
-  align-items: end;
-  justify-content: center;
-}
-.arch {
-  width: 66%;
-  height: 88%;
-  border-radius: 150px 150px 0 0;
-  border: 1px solid #f2cb8d;
-  background:
-    repeating-linear-gradient(90deg, transparent 0 23px, #e6ae5f33 24px 26px),
-    #893843;
-  box-shadow:
-    0 0 0 12px #c99160,
-    0 0 0 13px #edc68c;
-  display: grid;
-  place-items: center;
-}
-.arch span {
-  font-size: 130px;
-  color: #d1a557;
-  font-weight: 100;
+  padding-top: 64px;
 }
 .family {
-  background: #d6d4c1;
-  display: flex;
-  align-items: end;
-  justify-content: center;
-  gap: 0;
+  padding-top: 128px;
 }
-.fabric {
-  width: 34%;
-  height: 90%;
-  border-radius: 50% 50% 0 0;
-  transform: rotate(-14deg);
-  background: repeating-linear-gradient(
-    90deg,
-    #354d45,
-    #627569 15%,
-    #344d43 26%
-  );
-  box-shadow: 5px 0 20px #0002;
-}
-.fabric-two {
-  height: 76%;
-  background: repeating-linear-gradient(
-    90deg,
-    #b68a56,
-    #e3cda3 15%,
-    #bd925d 26%
-  );
-  transform: rotate(8deg);
-}
-.fabric-three {
-  height: 96%;
-  background: repeating-linear-gradient(
-    90deg,
-    #886559,
-    #c7a692 15%,
-    #93705d 26%
-  );
-  transform: rotate(15deg);
+.family .card-art {
+  aspect-ratio: 4 / 5;
 }
 .card-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 23px;
-}
-.card-title h3 {
-  font-size: 26px;
-  margin: 0;
-}
-.card-title > span {
-  color: var(--color-gold);
-  font-size: 22px;
+  font-size: var(--type-card);
+  margin: 24px 0 12px;
+  letter-spacing: -0.02em;
 }
 .card p {
-  font-size: 12px;
-  color: var(--color-text-muted);
-  margin-top: 12px;
-  max-width: 320px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  max-width: 30em;
+  margin: 0;
+  line-height: 1.8;
 }
-@media (max-width: 1000px) {
-  .card-art {
-    height: 250px;
-  }
-  .card-title h3 {
-    font-size: 22px;
+@media (hover: hover) {
+  .card:hover img {
+    transform: scale(1.025);
   }
 }
-@media (max-width: 700px) {
-  .card-art {
-    height: 330px;
+@media (max-width: 900px) {
+  .wedding {
+    padding-top: 48px;
   }
-  .card p {
-    max-width: none;
+  .family {
+    padding-top: 0;
+  }
+  .family .card-art {
+    aspect-ratio: 5 / 3;
+  }
+}
+@media (max-width: 600px) {
+  .card-art {
+    aspect-ratio: 1;
+  }
+  .silk .card-art {
+    aspect-ratio: 4 / 5;
+  }
+  .wedding {
+    padding-top: 0;
+    margin-left: 32px;
+  }
+  .family {
+    margin-right: 32px;
+  }
+  .family .card-art {
+    aspect-ratio: 5 / 4;
   }
   .card-title {
-    margin-top: 17px;
+    margin-top: 20px;
+    font-size: 30px;
   }
-  .card-title h3 {
-    font-size: 26px;
-  }
-}
-.arch [data-ornament] {
-  width: 130px;
-  height: 130px;
 }

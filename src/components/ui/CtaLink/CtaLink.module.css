@@ -1,23 +1,46 @@
 .link {
   display: inline-flex;
-  gap: var(--space-6);
   align-items: center;
-  background: var(--color-wine);
-  color: var(--color-on-wine);
-  padding: 17px 23px;
-  font-size: 12px;
+  justify-content: space-between;
+  gap: 32px;
+  min-height: 56px;
+  padding: 17px 24px;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  border: 1px solid var(--color-brand);
+  font-size: var(--type-small);
+  line-height: 1.4;
+  transition:
+    background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
 }
 .link:hover {
   background: var(--color-wine-light);
+  border-color: var(--color-wine-light);
 }
-.link span {
-  font-size: 18px;
+.link svg {
+  transition: transform var(--transition-fast);
+}
+.link:hover svg {
+  transform: translate(3px, -3px);
+}
+.link:active {
+  background: var(--color-surface-deep);
 }
 .light {
-  background: #efe3cb;
-  color: var(--color-wine);
-  margin-top: 10px;
+  background: var(--color-on-brand);
+  color: var(--color-brand);
+  border-color: var(--color-on-brand);
 }
 .light:hover {
-  background: #fff3dc;
+  background: var(--color-rose);
+  border-color: var(--color-rose);
+  color: var(--color-brand);
+}
+.light:active {
+  background: var(--color-accent-light);
+}
+.light:focus-visible {
+  outline-color: var(--color-on-brand);
 }

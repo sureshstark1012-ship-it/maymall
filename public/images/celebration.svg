@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="900" viewBox="0 0 700 900">
+<defs>
+ <linearGradient id="rose" x2="1" y2="1"><stop stop-color="#e2c1b3"/><stop offset="1" stop-color="#ad7261"/></linearGradient>
+ <pattern id="weave" width="7" height="7" patternUnits="userSpaceOnUse"><path d="M0 1H7M1 0V7" stroke="#fff4dd" stroke-opacity=".1" stroke-width=".6"/></pattern>
+ <pattern id="border" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M16 2 30 16 16 30 2 16Z M16 8 24 16 16 24 8 16Z" fill="none" stroke="#d9bb82" stroke-width=".7"/></pattern>
+</defs>
+<path fill="url(#rose)" d="M0 0h700v900H0z"/><path fill="url(#weave)" d="M0 0h700v900H0z"/>
+<g transform="rotate(-9 350 450)"><path d="M100 130h490v730H100z" fill="#6b3443" opacity=".18" transform="translate(15 20)"/>
+<path d="M100 130h490v730H100z" fill="#faf1de"/><path d="M116 146h458v698H116z" fill="none" stroke="#85612f"/>
+<path d="M126 156h438v678H126z" fill="none" stroke="#b59666" stroke-width=".7"/>
+<path d="M151 192h388v584H151z" fill="#4a172a"/><path d="M162 203h366v562H162z" fill="none" stroke="#d9bb82"/>
+<path d="M170 212h350v52H170zM170 704h350v52H170z" fill="url(#border)"/>
+<g fill="none" stroke="#d9bb82" stroke-width="1"><path d="M345 350 440 445 345 540 250 445Z"/><path d="M345 370 420 445 345 520 270 445Z"/><path d="M345 391 399 445 345 499 291 445Z"/><path d="M345 410 380 445 345 480 310 445Z"/>
+<path d="M218 600h254M245 610h200M290 625h110"/></g></g>
+<path fill="url(#weave)" d="M0 0h700v900H0z"/>
+</svg>
