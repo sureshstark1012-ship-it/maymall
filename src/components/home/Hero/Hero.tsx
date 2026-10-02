@@ -1,5 +1,5 @@
 import { OrnamentIcon } from "@/components/ui/Ornament/OrnamentIcon";
-import { Button } from "@/components/ui/Button/Button";
+import { CtaLink } from "@/components/ui/CtaLink/CtaLink";
 import { Container } from "@/components/ui/Container/Container";
 import styles from "./Hero.module.css";
 export function Hero() {
@@ -19,7 +19,7 @@ export function Hero() {
           Silks that celebrate our roots. Styles that bring us together. A new
           chapter in family shopping is coming to Madurai.
         </p>
-        <Button href="#collections">Explore the collections</Button>
+        <CtaLink href="#collections">Explore the collections</CtaLink>
         <div className={styles["hero-note"]}>
           <span className={styles["mini-flower"]}>
             <OrnamentIcon />

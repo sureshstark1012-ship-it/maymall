@@ -1,5 +1,5 @@
 import { OrnamentIcon } from "@/components/ui/Ornament/OrnamentIcon";
-import { Button } from "@/components/ui/Button/Button";
+import { CtaLink } from "@/components/ui/CtaLink/CtaLink";
 import styles from "./WeddingEdit.module.css";
 export function WeddingEdit() {
   return (
@@ -28,9 +28,9 @@ export function WeddingEdit() {
           its own colour. Imagine wedding silks, festive ensembles and
           thoughtful looks for everyone in your story.
         </p>
-        <Button href="#collections" variant="light">
+        <CtaLink href="#collections" variant="light">
           Discover occasion wear
-        </Button>
+        </CtaLink>
       </div>
     </section>
   );

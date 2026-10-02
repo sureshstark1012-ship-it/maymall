@@ -207,3 +207,20 @@ test("metadata is present without fabricated production URLs", async ({
     /noindex/,
   );
 });
+
+test("baseline HTTP security headers protect the page and public artwork", async ({
+  request,
+}) => {
+  for (const path of ["/", "/images/silk.svg"]) {
+    const response = await request.get(path);
+    expect(response.ok()).toBe(true);
+    const headers = response.headers();
+    expect(headers["x-content-type-options"]).toBe("nosniff");
+    expect(headers["referrer-policy"]).toBe("strict-origin-when-cross-origin");
+    expect(headers["permissions-policy"]).toBe(
+      "camera=(), microphone=(), geolocation=()",
+    );
+    expect(headers["x-frame-options"]).toBe("DENY");
+    expect(headers["x-powered-by"]).toBeUndefined();
+  }
+});

@@ -1,5 +1,7 @@
 # Phase 1 audit and decisions
 
+> Historical Phase 1 record. See [production hardening](production-hardening.md) for current CI, static rendering, security headers and API naming decisions.
+
 ## Audited prototype
 
 The repository initially contained `index.html`, `src/main.js`, one compressed `src/style.css`, `public/silk.svg`, Vite package files, README and `.gitignore`. No existing tests, agent instructions, routes, backend, external scripts, fonts or raster assets were present. The Git working directory was clean.

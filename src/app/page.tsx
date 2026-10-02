@@ -5,8 +5,6 @@ import { CollectionsSection } from "@/components/home/Collections/CollectionsSec
 import { WeddingEdit } from "@/components/home/WeddingEdit/WeddingEdit";
 import { BrandValues } from "@/components/home/BrandValues/BrandValues";
 import { VisitSection } from "@/components/home/Visit/VisitSection";
-// Refresh static content daily, including the server-rendered copyright year.
-export const revalidate = 86400;
 export default function Home() {
   return (
     <main id="main-content" tabIndex={-1}>

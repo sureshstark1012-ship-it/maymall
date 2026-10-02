@@ -1,9 +1,9 @@
 import type { ComponentPropsWithoutRef } from "react";
 import { cx } from "@/lib/utils";
 import { ArrowIcon } from "@/components/ui/ArrowIcon/ArrowIcon";
-import styles from "./Button.module.css";
+import styles from "./CtaLink.module.css";
 // These calls to action navigate, so they are semantic links rather than buttons.
-export function Button({
+export function CtaLink({
   variant = "default",
   className,
   children,
@@ -12,7 +12,7 @@ export function Button({
   return (
     <a
       className={cx(
-        styles.button,
+        styles.link,
         variant === "light" && styles.light,
         className,
       )}

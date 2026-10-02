@@ -1,5 +1,7 @@
 # Phase 1 completion report
 
+> Historical Phase 1 record. See [production hardening](production-hardening.md) for current CI, static rendering, security headers and API naming decisions.
+
 ## 1. Architecture changes
 
 Migrated Vite's HTML/CSS/DOM-script page to Next.js 16.3.8 App Router, React 19.3.0 and strict TypeScript. Next.js was selected from the registry's stable latest release during this migration; the production npm audit reports zero known vulnerabilities. Static sections use Server Components. MobileNavigation and CollectionFilters are the only client entrypoints. Navigation links and collection cards are composed on the server and passed to those interactive boundaries. The homepage is prerendered with daily revalidation.

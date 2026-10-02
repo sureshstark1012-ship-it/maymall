@@ -8,9 +8,11 @@
     "start": "next start",
     "lint": "eslint . --max-warnings=0",
     "typecheck": "tsc --noEmit",
-    "test": "playwright test",
+    "test": "npm run test:e2e:prod",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "test:e2e:dev": "playwright test",
+    "test:e2e:prod": "playwright test --config=playwright.production.config.ts"
   },
   "repository": {
     "type": "git",
@@ -18,7 +20,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "type": "module",
   "bugs": {
     "url": "https://github.com/sureshstark1012-ship-it/maymall/issues"

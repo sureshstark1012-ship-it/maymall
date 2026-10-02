@@ -1,4 +1,4 @@
-.button {
+.link {
   display: inline-flex;
   gap: var(--space-6);
   align-items: center;
@@ -7,10 +7,10 @@
   padding: 17px 23px;
   font-size: 12px;
 }
-.button:hover {
+.link:hover {
   background: var(--color-wine-light);
 }
-.button span {
+.link span {
   font-size: 18px;
 }
 .light {

@@ -1,6 +1,7 @@
 import { Container } from "@/components/ui/Container/Container";
 import { Brand } from "@/components/layout/Brand/Brand";
 import styles from "./Footer.module.css";
+// This year is stamped during static generation; refresh it with the next deployment.
 export function Footer() {
   return (
     <Container as="footer" variant="full" className={styles.footer}>
