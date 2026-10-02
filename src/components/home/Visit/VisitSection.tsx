@@ -1,5 +1,5 @@
 import { Container } from "@/components/ui/Container/Container";
-import { FAQ } from "@/components/home/FAQ/FAQ";
+import { CtaLink } from "@/components/ui/CtaLink/CtaLink";
 import styles from "./VisitSection.module.css";
 export function VisitSection() {
   return (
@@ -27,7 +27,15 @@ export function VisitSection() {
           <span></span> COMING SOON · MADURAI, TAMIL NADU
         </span>
       </div>
-      <FAQ />
+      <div className={styles["launch-note"]}>
+        <p className="eyebrow">OPENING INFORMATION</p>
+        <h3>Our next chapter, as it unfolds.</h3>
+        <p>
+          The opening date and exact address have not yet been announced. Find
+          current launch information and answers to your questions.
+        </p>
+        <CtaLink href="/visit">Visit information</CtaLink>
+      </div>
     </Container>
   );
 }

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ArrowIcon } from "@/components/ui/ArrowIcon/ArrowIcon";
 import { Container } from "@/components/ui/Container/Container";
 import styles from "./BrandStory.module.css";
@@ -31,12 +32,15 @@ export function BrandStory() {
             Chennai Silks, our vision brings together heritage, occasion wear
             and everyday style in a welcoming destination.
           </p>
-          <a className="text-link" href="#visit">
+          <p className={styles.clarification}>
+            An official affiliation has not been announced.
+          </p>
+          <Link className="text-link" href="/our-story">
             Our Madurai chapter{" "}
             <span>
               <ArrowIcon />
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </Container>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { navigation } from "@/data/navigation";
 import { Container } from "@/components/ui/Container/Container";
 import { Brand } from "@/components/layout/Brand/Brand";
 import styles from "./Footer.module.css";
@@ -10,6 +12,13 @@ export function Footer() {
         <p>Tradition woven into tomorrow.</p>
         <a href="#">Back to top ↑</a>
       </div>
+      <nav aria-label="Footer navigation" className={styles.navigation}>
+        {navigation.map((item) => (
+          <Link key={item.href} href={item.href}>
+            {item.label}
+          </Link>
+        ))}
+      </nav>
       <div className={styles["footer-bottom"]}>
         <span>© {new Date().getFullYear()} MayMall. All rights reserved.</span>
         <span>Made for Madurai. Inspired by tradition.</span>

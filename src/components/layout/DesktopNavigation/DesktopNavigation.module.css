@@ -37,3 +37,14 @@
     display: flex;
   }
 }
+
+.navigation a[aria-current] {
+  color: var(--color-brand);
+}
+.navigation a[aria-current]::after {
+  transform: scaleX(1);
+}
+.navigation a:last-child[aria-current] {
+  border-color: var(--color-brand);
+  background: var(--color-surface);
+}

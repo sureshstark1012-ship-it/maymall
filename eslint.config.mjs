@@ -32,6 +32,7 @@ export default defineConfig([
     files: [
       "src/components/home/Hero/Hero.tsx",
       "src/components/home/Collections/CollectionCard.tsx",
+      "src/components/editorial/EditorialArtwork/EditorialArtwork.tsx",
     ],
     rules: { "@next/next/no-img-element": "off" },
   },

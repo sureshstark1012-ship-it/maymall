@@ -7,7 +7,7 @@ import { BrandValues } from "@/components/home/BrandValues/BrandValues";
 import { VisitSection } from "@/components/home/Visit/VisitSection";
 export default function Home() {
   return (
-    <main id="main-content" tabIndex={-1}>
+    <>
       <Hero />
       <HeritageRibbon />
       <BrandStory />
@@ -15,6 +15,6 @@ export default function Home() {
       <WeddingEdit />
       <BrandValues />
       <VisitSection />
-    </main>
+    </>
   );
 }

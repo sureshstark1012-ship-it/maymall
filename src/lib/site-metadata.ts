@@ -5,7 +5,15 @@ const description =
 // TODO: configure the verified public origin at deployment; never invent a brand URL.
 const configuredOrigin = process.env.SITE_URL;
 const origin = configuredOrigin ? new URL(configuredOrigin) : undefined;
-if (origin && !["http:", "https:"].includes(origin.protocol))
+if (
+  origin &&
+  (!["http:", "https:"].includes(origin.protocol) ||
+    origin.username ||
+    origin.password ||
+    origin.pathname !== "/" ||
+    origin.search ||
+    origin.hash)
+)
   throw new Error("SITE_URL must be an HTTP(S) origin");
 export const siteMetadata: Metadata = {
   title: { default: title, template: "%s | MayMall Madurai" },
@@ -23,3 +31,24 @@ export const siteMetadata: Metadata = {
   },
   twitter: { card: "summary", title, description },
 };
+
+export function pageMetadata(
+  title: string,
+  description: string,
+  path: `/${string}`,
+): Metadata {
+  const fullTitle = `${title} | MayMall Madurai`;
+  const url = origin ? new URL(path, origin) : undefined;
+  return {
+    title,
+    description,
+    openGraph: {
+      ...siteMetadata.openGraph,
+      title: fullTitle,
+      description,
+      ...(url ? { url } : {}),
+    },
+    twitter: { ...siteMetadata.twitter, title: fullTitle, description },
+    ...(url ? { alternates: { canonical: url } } : {}),
+  };
+}

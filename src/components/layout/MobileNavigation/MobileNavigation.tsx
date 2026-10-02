@@ -1,8 +1,14 @@
 "use client";
 import { useEffect, useRef, useState, type ReactNode } from "react";
+import { usePathname } from "next/navigation";
 import { cx } from "@/lib/utils";
 import styles from "./MobileNavigation.module.css";
 export function MobileNavigation({ children }: { children: ReactNode }) {
+  const pathname = usePathname();
+  return <Menu key={pathname}>{children}</Menu>;
+}
+// Layouts persist across route transitions; keying the disclosure resets stale state.
+function Menu({ children }: { children: ReactNode }) {
   const [open, setOpen] = useState(false);
   const trigger = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -47,9 +53,6 @@ export function MobileNavigation({ children }: { children: ReactNode }) {
             const link = target.closest("a");
             if (link) {
               setOpen(false);
-              const id = link.hash.slice(1);
-              const destination = document.getElementById(id);
-              destination?.focus({ preventScroll: true });
             }
           }
         }}

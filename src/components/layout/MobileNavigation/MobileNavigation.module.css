@@ -89,3 +89,8 @@
     display: none;
   }
 }
+
+.mobile-navigation > a[aria-current] {
+  color: var(--color-brand);
+  border-bottom-color: var(--color-accent);
+}

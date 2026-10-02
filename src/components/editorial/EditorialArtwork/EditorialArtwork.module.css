@@ -1,0 +1,25 @@
+.artwork {
+  position: relative;
+  margin: 0;
+  border: var(--textile-rule);
+  padding: 10px;
+  background: var(--color-surface);
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+.artwork img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.artwork figcaption {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 14px 16px;
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+  font-size: 12px;
+  line-height: 1.5;
+}
