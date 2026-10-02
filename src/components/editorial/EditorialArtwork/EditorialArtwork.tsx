@@ -5,12 +5,10 @@ export function EditorialArtwork({
   artwork,
   className,
   priority = false,
-  loading = "eager",
 }: {
   artwork: EditorialImage;
   className?: string;
   priority?: boolean;
-  loading?: "eager" | "lazy";
 }) {
   return (
     <figure className={cx(styles.artwork, className)}>
@@ -19,7 +17,7 @@ export function EditorialArtwork({
         alt={artwork.alt}
         width={artwork.width}
         height={artwork.height}
-        loading={loading}
+        loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "auto"}
       />
       <figcaption>Illustrative textile study</figcaption>

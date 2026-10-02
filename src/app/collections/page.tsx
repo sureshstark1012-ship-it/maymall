@@ -40,7 +40,6 @@ export default function CollectionsPage() {
             <EditorialArtwork
               artwork={collection.artwork}
               className={styles.artwork}
-              loading="lazy"
             />
             <div className={styles.copy}>
               <p className="eyebrow">

@@ -392,3 +392,27 @@ for (const [name, path, width] of [
     });
   });
 }
+
+test("primary collection artwork loads eagerly with high priority", async ({
+  page,
+}) => {
+  await page.goto("/collections/silk");
+  const artwork = page.getByRole("main").getByRole("img", {
+    name: "Golden border on a plum silk saree illustration",
+    exact: true,
+  });
+  await expect(artwork).toHaveAttribute("loading", "eager");
+  await expect(artwork).toHaveAttribute("fetchpriority", "high");
+});
+
+test("ordinary story artwork defaults to lazy loading and automatic priority", async ({
+  page,
+}) => {
+  await page.goto("/our-story");
+  const artwork = page.getByRole("main").getByRole("img", {
+    name: "Golden border on a plum silk saree illustration",
+    exact: true,
+  });
+  await expect(artwork).toHaveAttribute("loading", "lazy");
+  await expect(artwork).toHaveAttribute("fetchpriority", "auto");
+});

@@ -36,10 +36,7 @@ export default function StoryPage() {
         aria-labelledby="story-title"
       >
         <div className={styles.art}>
-          <EditorialArtwork
-            artwork={collectionBySlug.silk.artwork}
-            loading="lazy"
-          />
+          <EditorialArtwork artwork={collectionBySlug.silk.artwork} />
           <p className={styles.artNote}>
             A textile study for a story still unfolding.
           </p>

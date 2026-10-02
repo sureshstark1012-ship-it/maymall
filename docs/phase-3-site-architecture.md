@@ -56,7 +56,7 @@ npm run build
 PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH=/usr/bin/chromium npm test
 ```
 
-Formatting, lint, strict TypeScript and production build pass. All **43 production Chromium tests pass**. Coverage includes all route titles/metadata/headings/skip links, keyboard desktop/mobile navigation, Escape/focus, back/forward disclosure reset, preview/landing/related collection links, gateway CTAs, unknown-route 404s, cautious affiliation copy, filters, native FAQ, no-JavaScript operation, security headers, artwork loading and reduced motion. All seven routes are checked for console errors, overflow and target heights at 375, 390, 430, 768, 900, 1024, 1280, 1440 and 1600px.
+Formatting, lint, strict TypeScript and production build pass. All **45 production Chromium tests pass**. Coverage includes all route titles/metadata/headings/skip links, keyboard desktop/mobile navigation, Escape/focus, back/forward disclosure reset, preview/landing/related collection links, gateway CTAs, unknown-route 404s, cautious affiliation copy, filters, native FAQ, no-JavaScript operation, security headers, artwork loading and reduced motion. All seven routes are checked for console errors, overflow and target heights at 375, 390, 430, 768, 900, 1024, 1280, 1440 and 1600px.
 
 Seven attached production review screenshots are retained by CI for seven days in `site-review`: `homepage-375.png`, `homepage-1440.png`, `review-collections-375.png`, `review-collections-1440.png`, `review-silk-375.png`, `review-silk-1440.png`, `review-visit-1440.png`. Screenshot outputs remain ignored; there are no fragile pixel snapshot assertions. Additional local review captures cover every route at all nine widths, including full-page views at 375/900/1440px.
 
@@ -69,3 +69,11 @@ The verified public domain, launch date, exact address/directions, hours, legal 
 Phase 4 should prioritize approved content/photography, verified launch information, real-device and assistive-technology review, and field performance after a confirmed deployment. Deployment-specific CSP/HSTS and the previously documented ESLint 10 accessibility-plugin compatibility gap remain separate hardening work.
 
 Stable collection URLs can later introduce genuine product discovery without changing editorial identity. Products, pricing and stock must come from an approved business source before commerce is modeled. The typed editorial record can map to a future CMS without coupling content to one universal layout; no CMS adapters or commerce infrastructure were built now.
+
+## Final artwork-loading review
+
+EditorialArtwork now derives loading solely from its priority flag: ordinary artwork defaults to `lazy`/`auto`, while priority artwork is `eager`/`high`. Redundant lazy props were removed from Collections and Our Story. No caller needs an independent override, so the separate loading prop was removed to avoid conflicting lazy/high combinations. Focused production tests cover the primary Silk artwork and ordinary Story artwork; existing image-health checks remain.
+
+Only the primary Silk and Everyday detail illustrations request high priority: they anchor the opening compositions. Celebration remains lazy/auto because its invitation study follows the title and, on phones, the introductory copy. All landing illustrations, the Story sidebar and related previews remain lazy. The separate homepage hero retains its existing implicit eager loading and explicit high fetch priority. Assets, dimensions, styles and visual composition are unchanged.
+
+Final local verification passes all 45 production tests. A one-off comparison found all seven review captures pixel-identical to their pre-fix versions; no snapshot assertions or baseline files were added. The terminal colour warning was resolved by omitting the conflicting inherited `NO_COLOR` flag during the final browser run.
