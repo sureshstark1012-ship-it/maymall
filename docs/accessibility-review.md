@@ -26,6 +26,10 @@ Axe's ordinary text-contrast checks cover the real rendered palette. Existing bo
 
 Forced-colors inspection revealed the selected filter's plum fill flattened to the system palette, leaving no strong visual selection cue after focus moved away. A minimal forced-colors-only Highlight outline now preserves that selected state, without changing normal colors or geometry. Keyboard focus remains visible and the menu retains its bordered control/disclosure semantics. No blanket `forced-color-adjust: none` is used. This was Chromium forced-colors simulation, not testing on a Windows assistive-technology setup.
 
+## Engine incomplete findings reviewed
+
+The local reports retain contrast checks the engine could not resolve. The open mobile menu geometrically overlaps the underlying hero, so the engine cannot determine those background samples; keyboard inspection confirms the disclosure and Escape restoration, and the unchanged hero palette is reviewed with the menu closed. The wedding-panel label is flagged because of the decorative pseudo-element/gradient layers. Its pale gold text on deep plum has a conservative 7.94:1 contrast at the brightest crossing of both 9/255-opacity grid layers, above the normal-text threshold. These findings remain in the report rather than being suppressed. Real-device and future-content review is still required.
+
 ## Remaining human validation
 
 Owner review should include NVDA/JAWS on Windows, VoiceOver on Apple devices, real touch targets and browser zoom/text scaling, Tamil pronunciation/language switching, future photography alt text/crops, and sharing/host accessibility. No screen reader was available for this review. New content, approved photography or integrations require re-audit; engine reports may contain incomplete findings even when violations are zero.
