@@ -8,6 +8,19 @@ export const metadata: Metadata = {
   description:
     "The requested MayMall page could not be found. Return home or explore the collection themes.",
   robots: { index: false, follow: false },
+  alternates: { canonical: null },
+  openGraph: {
+    title: "Page not found | MayMall Madurai",
+    description:
+      "The requested MayMall page could not be found. Return home or explore the collection themes.",
+    type: "website",
+  },
+  twitter: {
+    card: "summary",
+    title: "Page not found | MayMall Madurai",
+    description:
+      "The requested MayMall page could not be found. Return home or explore the collection themes.",
+  },
 };
 export default function NotFound() {
   return (

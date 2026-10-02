@@ -55,3 +55,20 @@ jobs:
             test-results/**/review-*.png
           if-no-files-found: warn
           retention-days: 7
+
+      - name: Save performance review reports
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: performance-review
+          path: test-results/site/**/performance-*.json
+          if-no-files-found: error
+          retention-days: 7
+      - name: Save accessibility review reports
+        if: ${{ !cancelled() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: accessibility-review
+          path: test-results/site/**/accessibility-*.json
+          if-no-files-found: error
+          retention-days: 7

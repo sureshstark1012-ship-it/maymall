@@ -74,3 +74,11 @@
     padding-inline: 12px;
   }
 }
+
+@media (forced-colors: active) {
+  /* Forced palettes flatten the selected fill; preserve a visible state cue. */
+  .filters button[aria-pressed="true"] {
+    outline: 2px solid Highlight;
+    outline-offset: 2px;
+  }
+}
