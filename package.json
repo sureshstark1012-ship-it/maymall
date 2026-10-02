@@ -1,0 +1,26 @@
+{
+  "name": "maymall",
+  "version": "1.0.0",
+  "description": "MayMall website",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sureshstark1012-ship-it/maymall.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/sureshstark1012-ship-it/maymall/issues"
+  },
+  "homepage": "https://github.com/sureshstark1012-ship-it/maymall#readme",
+  "devDependencies": {
+    "vite": "^8.3.2"
+  },
+  "private": true
+}
