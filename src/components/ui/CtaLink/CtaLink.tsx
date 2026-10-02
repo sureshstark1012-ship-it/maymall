@@ -1,4 +1,5 @@
-import type { ComponentPropsWithoutRef } from "react";
+import Link from "next/link";
+import type { ComponentProps } from "react";
 import { cx } from "@/lib/utils";
 import { ArrowIcon } from "@/components/ui/ArrowIcon/ArrowIcon";
 import styles from "./CtaLink.module.css";
@@ -8,9 +9,9 @@ export function CtaLink({
   className,
   children,
   ...props
-}: ComponentPropsWithoutRef<"a"> & { variant?: "default" | "light" }) {
+}: ComponentProps<typeof Link> & { variant?: "default" | "light" }) {
   return (
-    <a
+    <Link
       className={cx(
         styles.link,
         variant === "light" && styles.light,
@@ -22,6 +23,6 @@ export function CtaLink({
       <span>
         <ArrowIcon />
       </span>
-    </a>
+    </Link>
   );
 }

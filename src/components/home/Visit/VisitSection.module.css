@@ -40,3 +40,19 @@
     max-width: 12em;
   }
 }
+
+.launch-note {
+  border-left: var(--textile-rule);
+  padding-left: 32px;
+  align-self: center;
+}
+.launch-note h3 {
+  font-size: clamp(30px, 3vw, 44px);
+}
+@media (max-width: 900px) {
+  .launch-note {
+    border-left: 0;
+    border-top: var(--textile-rule);
+    padding: 32px 0 0;
+  }
+}

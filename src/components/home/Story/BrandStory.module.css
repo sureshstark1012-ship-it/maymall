@@ -42,3 +42,9 @@
     max-width: 10em;
   }
 }
+
+.story-grid .clarification {
+  font-size: 14px;
+  border-left: var(--textile-rule);
+  padding-left: 16px;
+}

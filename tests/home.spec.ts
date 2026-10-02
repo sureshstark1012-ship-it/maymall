@@ -25,8 +25,11 @@ test("mobile navigation supports keyboard, Escape, focus restoration and link se
   await menu.click();
   await nav.getByRole("link", { name: "Collections", exact: true }).click();
   await expect(menu).toHaveAttribute("aria-expanded", "false");
-  await expect(page.locator("#collections")).toBeFocused();
-  await expect(page).toHaveURL(/#collections$/);
+  await expect(page).toHaveURL(/\/collections$/);
+  await expect(page.getByRole("heading", { level: 1 })).toContainText(
+    "Three edits.",
+  );
+  await expect(nav).toBeHidden();
 });
 
 test("mobile menu resets when moving to the desktop layout", async ({
@@ -82,7 +85,7 @@ test("collection filters expose their state and show the matching content", asyn
 test("native FAQ supports keyboard toggling and preserves cautious brand copy", async ({
   page,
 }) => {
-  await page.goto("/");
+  await page.goto("/visit");
   const first = page.locator("details").first();
   await expect(first).toHaveAttribute("open", "");
   const location = page
@@ -200,7 +203,7 @@ test("reduced motion disables smooth scrolling", async ({ page }) => {
   ).toBe("0s");
 });
 
-test("mobile anchors, collections and FAQ remain usable without JavaScript", async ({
+test("mobile routes, collections and FAQ remain usable without JavaScript", async ({
   browser,
 }) => {
   const context = await browser.newContext({
@@ -211,9 +214,14 @@ test("mobile anchors, collections and FAQ remain usable without JavaScript", asy
   await page.goto("/");
   const nav = page.getByRole("navigation", { name: "Mobile navigation" });
   await expect(nav).toBeVisible();
-  await nav.getByRole("link", { name: "Collections", exact: true }).click();
-  await expect(page).toHaveURL(/#collections$/);
   await expect(page.getByRole("article")).toHaveCount(3);
+  await nav.getByRole("link", { name: "Collections", exact: true }).click();
+  await expect(page).toHaveURL(/\/collections$/);
+  await expect(
+    page.getByRole("link", { name: /Explore The silk edit/i }),
+  ).toBeVisible();
+  await nav.getByRole("link", { name: "Visit", exact: true }).click();
+  await expect(page).toHaveURL(/\/visit$/);
   const location = page.locator("details").nth(1);
   await location.locator("summary").focus();
   await page.keyboard.press("Enter");

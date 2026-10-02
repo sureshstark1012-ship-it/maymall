@@ -20,7 +20,9 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         </a>
         <AnnouncementBar />
         <Header />
-        {children}
+        <main id="main-content" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

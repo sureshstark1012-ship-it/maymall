@@ -29,13 +29,13 @@
 .silk img {
   object-position: center 65%;
 }
-.wedding {
+.celebration {
   padding-top: 64px;
 }
-.family {
+.everyday {
   padding-top: 128px;
 }
-.family .card-art {
+.everyday .card-art {
   aspect-ratio: 4 / 5;
 }
 .card-title {
@@ -51,18 +51,18 @@
   line-height: 1.8;
 }
 @media (hover: hover) {
-  .card:hover img {
+  .preview:hover img {
     transform: scale(1.025);
   }
 }
 @media (max-width: 900px) {
-  .wedding {
+  .celebration {
     padding-top: 48px;
   }
-  .family {
+  .everyday {
     padding-top: 0;
   }
-  .family .card-art {
+  .everyday .card-art {
     aspect-ratio: 5 / 3;
   }
 }
@@ -73,18 +73,50 @@
   .silk .card-art {
     aspect-ratio: 4 / 5;
   }
-  .wedding {
+  .celebration {
     padding-top: 0;
     margin-left: 32px;
   }
-  .family {
+  .everyday {
     margin-right: 32px;
   }
-  .family .card-art {
+  .everyday .card-art {
     aspect-ratio: 5 / 4;
   }
   .card-title {
     margin-top: 20px;
     font-size: 30px;
   }
+}
+
+.preview {
+  display: block;
+  min-height: 44px;
+}
+.card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.card-title svg {
+  flex-shrink: 0;
+  color: var(--color-accent);
+  transition: transform var(--transition-fast);
+}
+.preview:hover .card-title svg {
+  transform: translate(2px, -2px);
+}
+.preview:focus-visible img {
+  transform: scale(1.025);
+}
+.preview:active {
+  opacity: 0.9;
+}
+.compact {
+  padding-top: 0;
+  margin-inline: 0;
+}
+.compact .card-art {
+  aspect-ratio: 3 / 2;
 }

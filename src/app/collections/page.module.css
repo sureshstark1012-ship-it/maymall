@@ -1,0 +1,67 @@
+.edits {
+  padding-bottom: var(--section-space);
+}
+.note {
+  max-width: 50em;
+  border-top: var(--textile-rule);
+  padding-top: 24px;
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  margin-bottom: 56px;
+}
+.edit {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 9%;
+  align-items: center;
+  padding-block: 48px;
+  border-bottom: 1px solid var(--color-border);
+}
+.edit:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+.edit:nth-of-type(even) {
+  grid-template-columns: 1.1fr 0.9fr;
+}
+.edit:nth-of-type(even) .artwork {
+  order: 2;
+}
+.copy h2 {
+  font-size: clamp(2.6rem, 4.5vw, 4.8rem);
+}
+.copy > p:not(:global(.eyebrow)) {
+  font-size: 16px;
+  line-height: 1.85;
+  color: var(--color-text-secondary);
+  max-width: 30em;
+  margin-bottom: 32px;
+}
+@media (max-width: 900px) {
+  .edit {
+    gap: 6%;
+  }
+}
+@media (max-width: 600px) {
+  .note {
+    margin-bottom: 16px;
+  }
+  .edit,
+  .edit:nth-of-type(even) {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    padding-block: 40px;
+  }
+  .edit .artwork {
+    order: 2;
+    margin-left: 24px;
+    aspect-ratio: 1;
+  }
+  .edit:nth-of-type(even) .artwork {
+    margin-left: 0;
+    margin-right: 24px;
+  }
+  .copy h2 {
+    font-size: 40px;
+  }
+}

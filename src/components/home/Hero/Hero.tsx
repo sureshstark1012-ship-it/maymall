@@ -18,7 +18,7 @@ export function Hero() {
           Silks that celebrate our roots. Styles that bring us together. A new
           chapter in family shopping is coming to Madurai.
         </p>
-        <CtaLink href="#collections">Explore the collections</CtaLink>
+        <CtaLink href="/collections">Explore the collections</CtaLink>
         <div className={styles["hero-note"]}>
           <p>
             For the moments you’ll remember.

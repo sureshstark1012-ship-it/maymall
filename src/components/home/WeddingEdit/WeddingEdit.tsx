@@ -28,7 +28,7 @@ export function WeddingEdit() {
           its own colour. Imagine wedding silks, festive ensembles and
           thoughtful looks for everyone in your story.
         </p>
-        <CtaLink href="#collections" variant="light">
+        <CtaLink href="/collections/celebration" variant="light">
           Discover occasion wear
         </CtaLink>
       </div>

@@ -67,3 +67,25 @@
     gap: 12px;
   }
 }
+
+.navigation {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  padding-bottom: 24px;
+  font-size: 14px;
+  color: var(--color-rose);
+}
+.navigation a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border-bottom: 1px solid transparent;
+}
+.navigation a:hover {
+  color: var(--color-on-brand);
+  border-color: var(--color-accent-light);
+}
+.navigation a:active {
+  color: var(--color-accent-light);
+}

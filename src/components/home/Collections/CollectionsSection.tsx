@@ -1,5 +1,5 @@
 import { Container } from "@/components/ui/Container/Container";
-import { collections } from "@/data/collections";
+import { collectionPreviewNote, collections } from "@/data/collections";
 import { CollectionCard } from "./CollectionCard";
 import { CollectionFilters } from "./CollectionFilters";
 import styles from "./CollectionsSection.module.css";
@@ -34,10 +34,7 @@ export function CollectionsSection() {
             content: <CollectionCard collection={collection} />,
           }))}
         />
-        <p className={styles["collection-note"]}>
-          Collection themes are a preview of our vision. Store and product
-          details will be shared closer to opening.
-        </p>
+        <p className={styles["collection-note"]}>{collectionPreviewNote}</p>
       </Container>
     </section>
   );

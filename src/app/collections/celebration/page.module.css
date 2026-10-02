@@ -1,0 +1,84 @@
+.field {
+  background: var(--color-brand);
+  color: var(--color-on-brand);
+}
+.masthead {
+  max-width: 1000px;
+  margin-bottom: 64px;
+}
+.masthead :global(.eyebrow) {
+  color: var(--color-accent-light);
+}
+.masthead h1 {
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  max-width: 9em;
+  margin-bottom: 32px;
+}
+.statement {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--color-accent-light);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  line-height: 1.25;
+  margin: 0;
+}
+.spread {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 10%;
+  align-items: center;
+}
+.artwork {
+  border-color: var(--color-accent-light);
+  background: var(--color-surface-deep);
+}
+.copy {
+  border-top: 3px double var(--color-accent-light);
+  padding-top: 40px;
+}
+.copy h2 {
+  font-size: clamp(2.6rem, 4.3vw, 4.4rem);
+}
+.copy em {
+  color: var(--color-accent-light);
+}
+.copy p {
+  color: var(--color-rose);
+  font-size: 16px;
+  line-height: 1.85;
+}
+.copy .note {
+  font-size: 12px;
+  margin-top: 32px;
+}
+@media (max-width: 900px) {
+  .spread {
+    gap: 6%;
+  }
+  .copy h2 {
+    font-size: 42px;
+  }
+}
+@media (max-width: 600px) {
+  .masthead {
+    margin-bottom: 40px;
+  }
+  .masthead h1 {
+    font-size: clamp(3rem, 13vw, 3.8rem);
+  }
+  .spread {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .copy {
+    grid-row: 1;
+    padding-top: 28px;
+  }
+  .copy h2 {
+    font-size: 42px;
+  }
+  .artwork {
+    margin-inline: 20px;
+    aspect-ratio: 1;
+  }
+}
