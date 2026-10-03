@@ -30,7 +30,7 @@ Use `next/image` for raster media, with real intrinsic width/height, an intentio
 
 Prefer compressed WebP/AVIF where quality survives, or a suitable JPEG. Start with advisory delivery targets around 150 KiB for a mobile hero and 250 KiB for desktop; inspect actual quality and measured transfer before making thresholds binding. Export sRGB, strip unnecessary metadata and keep subjects legible at small sizes. Reserve dimensions before loading to prevent layout shift. Lazy-load ordinary media; elevate only a measured/likely above-fold critical image, never an entire collection of previews.
 
-No raster component abstraction was added because no real raster editorial content exists yet. The current typed SVG contract and next/image availability do not require a fake media adapter.
+Phase 4 kept an SVG-only contract. Phase 5 adds a small kind-aware rendering boundary described below; no CMS or fake asset adapter is required.
 
 ## Current priority decisions
 
@@ -43,3 +43,24 @@ EditorialArtwork retains lazy/auto by default and eager/high only through `prior
 Source: `scripts/social-card.html`. Regenerate with `npm run social:generate` after installing Playwright Chromium, or set `PLAYWRIGHT_CHROMIUM_EXECUTABLE_PATH` to an available system Chromium. The generator serves only a fixed whitelist of local assets on a temporary loopback port, waits for fonts and closes the server/browser. Pin the browser when reproducing identical pixels; the committed asset is stable between builds. Update its versioned filename when replacing artwork.
 
 Next ImageResponse supports TTF/OTF/WOFF, while our approved font files are WOFF2. A static card avoids extra font conversion/assets and image-generation runtime dependencies. Nothing fetches fonts, artwork or photography from an external provider.
+
+## Phase 5 approval and typed media workflow
+
+Source received → rights/ownership and identifiable-person permission verified → technical quality reviewed → responsive crops approved → meaningful alt/credit/caption written → optimized derivatives created → nonindexable preview/PR review → owner approval → publication and cache verification. Record source, rights, approver and crop decisions in the PR or approved asset handoff. Do not publish an unverified storefront or imply confirmed inventory through a photograph.
+
+`src/data/media.ts` now explicitly distinguishes illustrative artwork from the social card. Editorial media supports `illustration` (local SVG) and `photography` (local JPEG/PNG/WebP/AVIF). `MediaImage` is a Server Component that preserves direct SVG markup and uses `next/image`’s documented `getImageProps` API with dimensions, sizes and deliberate loading for raster photography. All image slots use this boundary; no external hosts, arbitrary HTML or vendor adapter are accepted. Captions are explicit media fields: a photograph receives its approved caption or none, never an inherited illustrative label. The Hero's illustration-specific alt is used only for illustration; photographs use their supplied meaningful alt.
+
+After receiving an approved asset, a silk slot can use a record like the following (documentation only; this file does not exist and must not be published as a placeholder):
+
+```ts
+const approvedSilkPhoto: EditorialImage = {
+  kind: "photography",
+  src: "/images/collections/collection-silk-hero-01.jpg",
+  alt: "Describe the actual approved photograph and its meaningful textile detail",
+  width: 2400,
+  height: 3000,
+  // caption: owner-approved photograph caption, or omit it
+};
+```
+
+Keep existing SVG filenames. Future asset names can include `campaign-wedding-01.jpg` and `store-madurai-exterior-01.jpg`, but create them only when approved source files exist. Review the actual slot's `sizes`, object-fit crop and phone/desktop aspect ratios; revise priority only with LCP evidence. Tests prove raster responsive markup without adding random photography; caption rendering is conditional on the explicit media field. Future optimized-image payloads require a fresh performance audit, including optimizer URL formats.

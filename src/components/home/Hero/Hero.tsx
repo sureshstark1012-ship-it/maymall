@@ -1,3 +1,6 @@
+import { businessFacts } from "@/data/business";
+import { editorialMedia } from "@/data/media";
+import { MediaImage } from "@/components/ui/MediaImage/MediaImage";
 import { CtaLink } from "@/components/ui/CtaLink/CtaLink";
 import { Container } from "@/components/ui/Container/Container";
 import styles from "./Hero.module.css";
@@ -16,7 +19,11 @@ export function Hero() {
         </h1>
         <p className={styles["lead"]}>
           Silks that celebrate our roots. Styles that bring us together. A new
-          chapter in family shopping is coming to Madurai.
+          chapter in family shopping{" "}
+          {businessFacts.launchStatus === "open"
+            ? "has opened in"
+            : "is coming to"}{" "}
+          {businessFacts.city}.
         </p>
         <CtaLink href="/collections">Explore the collections</CtaLink>
         <div className={styles["hero-note"]}>
@@ -28,16 +35,21 @@ export function Hero() {
         </div>
       </div>
       <figure className={styles["hero-art"]}>
-        <img
-          src="/images/silk.svg"
-          width="900"
-          height="1100"
-          fetchPriority="high"
-          alt="Illustration of rich plum silk with an ornate golden border"
+        <MediaImage
+          media={editorialMedia.silk}
+          priority
+          sizes="(max-width: 900px) 100vw, 50vw"
+          alt={
+            editorialMedia.silk.kind === "illustration"
+              ? "Illustration of rich plum silk with an ornate golden border"
+              : editorialMedia.silk.alt
+          }
         />
         <figcaption className={styles["art-label"]}>
           <span>01 / THE SILK EDIT</span>
-          <span>Illustrative textile study</span>
+          {editorialMedia.silk.caption && (
+            <span>{editorialMedia.silk.caption}</span>
+          )}
         </figcaption>
       </figure>
     </Container>

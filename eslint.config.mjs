@@ -36,11 +36,7 @@ export default defineConfig([
   },
   {
     // Local SVG artwork benefits from neither rasterization nor image optimization.
-    files: [
-      "src/components/home/Hero/Hero.tsx",
-      "src/components/home/Collections/CollectionCard.tsx",
-      "src/components/editorial/EditorialArtwork/EditorialArtwork.tsx",
-    ],
+    files: ["src/components/ui/MediaImage/MediaImage.tsx"],
     rules: { "@next/next/no-img-element": "off" },
   },
 ]);

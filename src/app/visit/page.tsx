@@ -1,3 +1,6 @@
+import { businessFacts } from "@/data/business";
+import { BusinessFactsList } from "@/components/business/BusinessFactsList";
+import { launchLabel, visitDescription } from "@/lib/business-presentation";
 import { PageMasthead } from "@/components/editorial/PageMasthead/PageMasthead";
 import { FAQ } from "@/components/home/FAQ/FAQ";
 import { Container } from "@/components/ui/Container/Container";
@@ -7,7 +10,7 @@ import { pageMetadata } from "@/lib/site-metadata";
 import styles from "./page.module.css";
 export const metadata = pageMetadata(
   "Visit",
-  "MayMall is coming soon to Madurai, Tamil Nadu. The opening date and exact address have not been announced. Find current launch information and answers to common questions.",
+  visitDescription(businessFacts),
   "/visit",
 );
 export default function VisitPage() {
@@ -17,9 +20,13 @@ export default function VisitPage() {
         eyebrow="VISIT / OUR NEXT CHAPTER"
         title={
           <>
-            Madurai,
+            {businessFacts.city},
             <br />
-            <em>we’re coming home.</em>
+            <em>
+              {businessFacts.launchStatus === "open"
+                ? "we’re here."
+                : "we’re coming home."}
+            </em>
           </>
         }
         introduction="A fresh destination. A familiar love for tradition. We can’t wait to be part of your story."
@@ -31,22 +38,11 @@ export default function VisitPage() {
         aria-labelledby="launch-heading"
       >
         <div className={styles.launch}>
-          <p className="eyebrow">MADURAI, TAMIL NADU</p>
-          <h2 id="launch-heading">Coming soon.</h2>
-          <dl className={styles.facts}>
-            <div>
-              <dt>Opening date</dt>
-              <dd>Not yet announced</dd>
-            </div>
-            <div>
-              <dt>Exact address</dt>
-              <dd>Not yet announced</dd>
-            </div>
-            <div>
-              <dt>Collection themes</dt>
-              <dd>Editorial previews of our vision</dd>
-            </div>
-          </dl>
+          <p className="eyebrow">
+            {`${businessFacts.city}, ${businessFacts.state}`.toUpperCase()}
+          </p>
+          <h2 id="launch-heading">{launchLabel(businessFacts)}.</h2>
+          <BusinessFactsList facts={businessFacts} className={styles.facts} />
           <p className={styles.note}>{collectionPreviewNote}</p>
           <CtaLink href="/collections">Explore the collection themes</CtaLink>
         </div>

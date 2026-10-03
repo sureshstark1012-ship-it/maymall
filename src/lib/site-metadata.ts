@@ -1,17 +1,18 @@
+import { businessFacts } from "@/data/business";
+import { socialCard } from "@/data/media";
 import type { Metadata } from "next";
 import { siteConfig } from "@/lib/site-config";
 const title = "MayMall Madurai — A new chapter in tradition";
-const description =
-  "MayMall is coming to Madurai. Discover a vision of silk sarees, wedding wardrobes and family fashion rooted in Tamil tradition.";
+const description = `MayMall ${businessFacts.launchStatus === "open" ? "is open in" : "is coming to"} ${businessFacts.city}. Discover a vision of silk sarees, wedding wardrobes and family fashion rooted in Tamil tradition.`;
 // TODO: configure the verified public origin at deployment; never invent a brand URL.
 const { origin, indexable } = siteConfig;
 const socialImage = origin
   ? {
-      url: new URL("/images/brand/social-card-v1.png", origin),
-      width: 1200,
-      height: 630,
-      type: "image/png",
-      alt: "MayMall Madurai — a textile-inspired brand card",
+      url: new URL(socialCard.src, origin),
+      width: socialCard.width,
+      height: socialCard.height,
+      type: socialCard.type,
+      alt: socialCard.alt,
     }
   : undefined;
 export const siteMetadata: Metadata = {

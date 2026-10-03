@@ -1,3 +1,5 @@
+import { businessFacts } from "@/data/business";
+import { affiliationClarification } from "@/lib/business-presentation";
 import { PageMasthead } from "@/components/editorial/PageMasthead/PageMasthead";
 import { EditorialArtwork } from "@/components/editorial/EditorialArtwork/EditorialArtwork";
 import { PageClosing } from "@/components/editorial/PageClosing/PageClosing";
@@ -8,7 +10,7 @@ import { pageMetadata } from "@/lib/site-metadata";
 import styles from "./page.module.css";
 export const metadata = pageMetadata(
   "Our Story",
-  "The MayMall vision draws inspiration from Madurai, Tamil textile traditions and family celebrations. An official Chennai Silks affiliation has not been announced.",
+  `The MayMall vision draws inspiration from Madurai, Tamil textile traditions and family celebrations. ${affiliationClarification(businessFacts, true)}`,
   "/our-story",
 );
 export default function StoryPage() {
@@ -71,15 +73,18 @@ export default function StoryPage() {
             aria-label="Affiliation clarification"
           >
             <p>
-              An official affiliation has not been announced. This is the
-              MayMall website; the reference describes inspiration.
+              {affiliationClarification(businessFacts)} This is the MayMall
+              website; the reference describes inspiration.
             </p>
           </aside>
           <h3>The next chapter.</h3>
           <p>
-            MayMall is coming to Madurai. For now, the collection edits share
-            the direction of our vision. Opening information and confirmed store
-            details will follow when they are ready to be announced.
+            {businessFacts.launchStatus === "open"
+              ? `MayMall is open in ${businessFacts.city}.`
+              : `MayMall is coming to ${businessFacts.city}.`}{" "}
+            For now, the collection edits share the direction of our vision.
+            Opening information and confirmed store details will follow when
+            they are ready to be announced.
           </p>
         </div>
       </Container>

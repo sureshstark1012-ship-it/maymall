@@ -1,3 +1,4 @@
+import { editorialMedia } from "@/data/media";
 import type { Collection, CollectionSlug } from "@/types/content";
 export const collectionPreviewNote =
   "Collection themes are a preview of our vision. Store and product details will be shared closer to opening.";
@@ -9,12 +10,7 @@ export const collectionBySlug = {
     title: "The silk edit",
     description:
       "Rich colours, graceful drapes and the enduring charm of traditional silk sarees.",
-    artwork: {
-      src: "/images/silk.svg",
-      alt: "Golden border on a plum silk saree illustration",
-      width: 900,
-      height: 1100,
-    },
+    artwork: editorialMedia.silk,
     eyebrow: "HERITAGE / COLOUR / DRAPE",
     introduction:
       "A border catches the light. A fold holds a deeper colour. The Silk Edit is an editorial direction inspired by the quiet drama of silk dressing and the textile traditions we return to for meaningful occasions.",
@@ -43,12 +39,7 @@ export const collectionBySlug = {
     title: "The celebration edit",
     description:
       "Wedding and festive looks inspired by the moments that bring families together.",
-    artwork: {
-      src: "/images/celebration.svg",
-      alt: "Illustrative plum and gold invitation study on rose woven fabric",
-      width: 700,
-      height: 900,
-    },
+    artwork: editorialMedia.celebration,
     eyebrow: "GATHERINGS / FESTIVE DAYS / FAMILY",
     introduction:
       "Before the occasion comes the anticipation: choosing a colour, sharing an idea, imagining everyone together. The Celebration Edit looks towards wedding and festive dressing through the people and moments around it.",
@@ -77,12 +68,7 @@ export const collectionBySlug = {
     title: "The everyday edit",
     description:
       "A vision of comfortable, expressive fashion for women, men and little ones.",
-    artwork: {
-      src: "/images/everyday.svg",
-      alt: "Illustrative folded textiles in sage, ochre and muted rose",
-      width: 700,
-      height: 900,
-    },
+    artwork: editorialMedia.everyday,
     eyebrow: "DAILY COLOUR / PERSONAL EXPRESSION / FAMILY",
     introduction:
       "Not every day asks for an occasion. Some simply leave space to be yourself. The Everyday Edit imagines family fashion through comfortable rhythms, expressive colour and the different ways generations choose to dress.",

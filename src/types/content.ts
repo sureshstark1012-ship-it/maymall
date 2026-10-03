@@ -7,11 +7,17 @@ export type CollectionSlug = "silk" | "celebration" | "everyday";
 export type CollectionCategory = "heritage" | "family";
 export type CollectionFilter = "all" | CollectionCategory;
 export type EditorialImage = {
-  src: `/images/${string}.svg`;
   alt: string;
   width: number;
   height: number;
-};
+  caption?: string;
+} & (
+  | { kind: "illustration"; src: `/images/${string}.svg` }
+  | {
+      kind: "photography";
+      src: `/images/${string}.${"jpg" | "jpeg" | "png" | "webp" | "avif"}`;
+    }
+);
 export type Collection = {
   slug: CollectionSlug;
   id: string;
