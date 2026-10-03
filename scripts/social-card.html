@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>MayMall social card source</title>
+    <style>
+      @font-face {
+        font-family: Newsreader;
+        src: url("/newsreader.woff2");
+        font-weight: 200 800;
+      }
+      @font-face {
+        font-family: PublicSans;
+        src: url("/public-sans.woff2");
+        font-weight: 100 900;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        width: 1200px;
+        height: 630px;
+        background: #faf6ed;
+        color: #4a172a;
+        font-family: PublicSans, sans-serif;
+      }
+      main {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        gap: 54px;
+        padding: 60px 80px;
+        border: 18px solid #4a172a;
+      }
+      .copy {
+        flex: 1;
+      }
+      .ornament {
+        width: 72px;
+        height: 72px;
+        margin-bottom: 30px;
+      }
+      h1 {
+        font:
+          400 116px/1 Newsreader,
+          serif;
+        letter-spacing: -5px;
+        margin: 0 0 22px;
+      }
+      .city {
+        font-size: 17px;
+        letter-spacing: 8px;
+        margin: 0 0 42px;
+      }
+      .chapter {
+        font:
+          400 34px/1.2 Newsreader,
+          serif;
+        padding-top: 28px;
+        border-top: 3px double #9b7d56;
+        margin: 0;
+      }
+      .textile {
+        width: 300px;
+        height: 450px;
+        object-fit: cover;
+        padding: 10px;
+        border: 3px double #9b7d56;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="copy">
+        <img class="ornament" src="/icon.svg" alt="" width="72" height="72" />
+        <h1>MayMall</h1>
+        <p class="city">MADURAI</p>
+        <p class="chapter">A new chapter in tradition.</p>
+      </div>
+      <img
+        class="textile"
+        src="/silk.svg"
+        alt="Illustrative plum and gold textile study"
+        width="300"
+        height="450"
+      />
+    </main>
+  </body>
+</html>

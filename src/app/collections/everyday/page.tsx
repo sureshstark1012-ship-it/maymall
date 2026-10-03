@@ -28,7 +28,6 @@ export default function EverydayPage() {
         </div>
         <EditorialArtwork
           artwork={collection.artwork}
-          priority
           className={styles.artwork}
         />
         <p className={styles.note}>{collectionPreviewNote}</p>

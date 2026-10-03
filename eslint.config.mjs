@@ -15,6 +15,13 @@ export default defineConfig([
     "test-results/**",
   ]),
   {
+    files: ["scripts/**/*.mjs", "tests/**/*.mjs"],
+    extends: [js.configs.recommended],
+    languageOptions: {
+      globals: { process: "readonly", console: "readonly", Buffer: "readonly" },
+    },
+  },
+  {
     files: ["**/*.{ts,tsx}"],
     extends: [js.configs.recommended, tseslint.configs.recommended],
   },

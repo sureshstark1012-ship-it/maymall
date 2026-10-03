@@ -12,7 +12,9 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test:e2e:dev": "playwright test",
-    "test:e2e:prod": "playwright test --config=playwright.production.config.ts"
+    "test:e2e:prod": "node scripts/test-production.mjs",
+    "test:config": "node --test tests/site-config.test.mjs",
+    "social:generate": "node scripts/generate-social-card.mjs"
   },
   "repository": {
     "type": "git",
@@ -27,17 +29,18 @@
   },
   "homepage": "https://github.com/sureshstark1012-ship-it/maymall#readme",
   "devDependencies": {
-    "typescript": "^5.9.3",
+    "@axe-core/playwright": "^4.13.0",
+    "@eslint/js": "^10.0.0",
+    "@next/eslint-plugin-next": "16.3.8",
+    "@playwright/test": "^1.61.0",
     "@types/node": "^24.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "eslint": "^10.11.0",
+    "eslint-plugin-react-hooks": "^7.1.1",
     "prettier": "^3.0.0",
-    "@playwright/test": "^1.61.0",
-    "@eslint/js": "^10.0.0",
-    "typescript-eslint": "^8.71.0",
-    "@next/eslint-plugin-next": "16.3.8",
-    "eslint-plugin-react-hooks": "^7.1.1"
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.71.0"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +49,6 @@
     "react-dom": "19.3.0"
   },
   "engines": {
-    "node": ">=22.13.0"
+    "node": ">=24.0.0"
   }
 }
