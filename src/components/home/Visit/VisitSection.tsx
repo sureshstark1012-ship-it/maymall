@@ -1,3 +1,5 @@
+import { businessFacts } from "@/data/business";
+import { launchLabel, launchSummary } from "@/lib/business-presentation";
 import { Container } from "@/components/ui/Container/Container";
 import { CtaLink } from "@/components/ui/CtaLink/CtaLink";
 import styles from "./VisitSection.module.css";
@@ -14,9 +16,13 @@ export function VisitSection() {
       <div>
         <p className="eyebrow">OUR NEXT CHAPTER</p>
         <h2 id="visit-heading">
-          Madurai,
+          {businessFacts.city},
           <br />
-          <em>we’re coming home.</em>
+          <em>
+            {businessFacts.launchStatus === "open"
+              ? "we’re here."
+              : "we’re coming home."}
+          </em>
         </h2>
         <p>
           A fresh destination. A familiar love for tradition.
@@ -24,16 +30,14 @@ export function VisitSection() {
           We can’t wait to be part of your story.
         </p>
         <span className={styles["opening"]}>
-          <span></span> COMING SOON · MADURAI, TAMIL NADU
+          <span></span>{" "}
+          {`${launchLabel(businessFacts)} · ${businessFacts.city}, ${businessFacts.state}`.toUpperCase()}
         </span>
       </div>
       <div className={styles["launch-note"]}>
         <p className="eyebrow">OPENING INFORMATION</p>
         <h3>Our next chapter, as it unfolds.</h3>
-        <p>
-          The opening date and exact address have not yet been announced. Find
-          current launch information and answers to your questions.
-        </p>
+        <p>{launchSummary(businessFacts)}</p>
         <CtaLink href="/visit">Visit information</CtaLink>
       </div>
     </Container>

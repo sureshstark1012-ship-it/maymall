@@ -11,6 +11,7 @@ function run(command, args, env) {
 }
 try {
   run("node", ["--test", "tests/site-config.test.mjs"], preview);
+  run("npm", ["run", "test:content"], preview);
   for (const scenario of [
     {
       name: "preview",

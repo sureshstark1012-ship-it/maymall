@@ -1,3 +1,4 @@
+import { MediaImage } from "@/components/ui/MediaImage/MediaImage";
 import Link from "next/link";
 import type { Collection } from "@/types/content";
 import { cx } from "@/lib/utils";
@@ -25,12 +26,9 @@ export function CollectionCard({
         aria-labelledby={headingId}
       >
         <div className={styles["card-art"]}>
-          <img
-            src={collection.artwork.src}
-            alt={collection.artwork.alt}
-            loading="lazy"
-            width={collection.artwork.width}
-            height={collection.artwork.height}
+          <MediaImage
+            media={collection.artwork}
+            sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 33vw"
           />
           <span aria-hidden="true">{collection.id} / EDIT</span>
         </div>

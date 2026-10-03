@@ -44,3 +44,9 @@ The three existing client islands remain navigation state, active-link state and
 Enforced deterministic checks: all four font files together ≤220KiB, each original illustration ≤5KiB, social PNG ≤250KiB. These check committed source assets and fail `npm run test:config` on growth.
 
 Advisory review thresholds for comparable mobile samples: encoded JavaScript ≤200KiB, initial observed transfer ≤600KiB, LCP ≤2.5s and CLS ≤0.1. Investigate regressions with repeated samples and raw resources before changing priorities. Future photography must be separately budgeted and measured on the actual deployment network. Current results do not establish real-user performance; CDN latency, devices, production origin and any future instrumentation require a new baseline.
+
+## Phase 5 comparison
+
+Business/FAQ/media data and definition-list rendering remain on the server. Current SVG/font/social assets are unchanged. Measured encoded JavaScript increased from 138352 to approximately 149318 bytes (about 10.7KiB / 8%) when adding the public Next image API for the approved-raster rendering branch. Investigation found Next's image barrel also imports image-client references; deferring the import did not remove that payload in this release. Retain the simple documented API rather than private Next internals or fragile bundler exceptions. No new runtime dependency or application client island was introduced.
+
+Three cold mobile samples per representative route retained sub-second local median LCP and observed CLS below 0.02, with total observed transfer below 400KiB. These remain comparable laboratory observations, not field guarantees. The small payload increase remains below the existing advisory budget; remeasure actual photography and image optimization on the deployment host when approved assets arrive.

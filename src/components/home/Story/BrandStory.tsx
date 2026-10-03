@@ -1,3 +1,5 @@
+import { businessFacts } from "@/data/business";
+import { affiliationClarification } from "@/lib/business-presentation";
 import Link from "next/link";
 import { ArrowIcon } from "@/components/ui/ArrowIcon/ArrowIcon";
 import { Container } from "@/components/ui/Container/Container";
@@ -33,7 +35,7 @@ export function BrandStory() {
             and everyday style in a welcoming destination.
           </p>
           <p className={styles.clarification}>
-            An official affiliation has not been announced.
+            {affiliationClarification(businessFacts)}
           </p>
           <Link className="text-link" href="/our-story">
             Our Madurai chapter{" "}
